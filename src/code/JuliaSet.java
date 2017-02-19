@@ -5,7 +5,6 @@ import java.awt.geom.Point2D;
 import java.awt.geom.Point2D.Double;
 
 public class JuliaSet {
-	
 	private double _xCalc;
 	private double _yCalc;
 	private int _row;
