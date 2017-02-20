@@ -1,0 +1,22 @@
+Meeting Minutes for ___2/20/17____:
+
+Meeting Attendance:
+  *Asif	
+  *Gao
+  *Mark M
+
+Tasks completed since last meeting:
+  *All three original fractal sets
+  *
+
+Tasks started, but not completed, since last meeting:
+  *Beginning of one set test.
+  *
+
+Tasks to be worked on (and by which team members) for the next meeting:
+  *MultiBrot set (Asif) and (Mark)
+  *3 set tests (Gao)
+
+Schedule for the next week's set of pair programming meetings:
+  *2/23 2pm- ~4pm
+  *
