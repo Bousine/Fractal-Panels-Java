@@ -6,16 +6,17 @@ Meeting Attendance:
   *Mark M
 
 Tasks completed since last meeting:
-  *All three original fractal sets
+  *All four original fractal sets
   *
 
 Tasks started, but not completed, since last meeting:
-  *Beginning of one set test.
+  *Beginning of two set tests.
   *
 
 Tasks to be worked on (and by which team members) for the next meeting:
-  *MultiBrot set (Asif) and (Mark)
-  *3 set tests (Gao)
+  *BurningShip set test (Asif)
+  *Julia Set test (Mark)
+  *finish Mandelbrot set test and start multibrot set test (Gao)
 
 Schedule for the next week's set of pair programming meetings:
   *2/23 2pm- ~4pm
