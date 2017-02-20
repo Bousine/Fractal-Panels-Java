@@ -16,7 +16,7 @@ public class MultibrotTest {
 	
 	// The method called to calculate the fractal returns a 2-d array with 512 rows and 512 columns
 	@Test
-	public void test_returnResult(){
+	public void test(){
 		assertFalse(object.fractalCalc()==null);
 		assertEquals(512, object.fractalCalc().length);
 		assertEquals(512, object.fractalCalc()[0].length);
