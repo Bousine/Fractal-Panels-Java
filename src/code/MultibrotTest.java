@@ -47,5 +47,21 @@ public class MultibrotTest {
 		assertEquals(1.3, actual512, 0.0001);
 		
 	}
+	
+	/* Calculates the escape time for a coordinate whose distance from the origin never exceeds the escape distance
+	 * I am confused. Maybe you can figure it out before I do. 
+	 */
+	@Test
+	public void test3(){
+		
+	}
+	
+	/* Calculates the escape time for a coordinate whose distance from the origin exceeds the escape distance after a single loop pass
+	 * I am confused. Maybe you can figure it out before I do. 
+	 */
+	@Test
+	public void test4(){
+		
+	}
 
 }
