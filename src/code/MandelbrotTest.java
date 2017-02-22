@@ -49,7 +49,6 @@ public class MandelbrotTest {
 	
 	
 	
-	//Below Tests added by me. One of these is failing.
 	@Test
 	public void distanceNotPassedTest(){
 		//Test for the escape time for a coordinate whose distance from the origin never exceeds the escape distance 
