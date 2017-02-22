@@ -28,13 +28,13 @@ public class MandelbrotSet {
 	
 	
 	//this calculates new x position
-	public double newPositionX(double x, double y){ 
-		return (x*x)-(y*y)+x; //This formula is wrong. current coordinate not same as x or y.
+	public double newPositionX(double x, double y, double currentx){ 
+		return (x*x)-(y*y)+currentx; 
 	}
 	
 	//this calculates new y position
-	public double newPositionY(double x, double y){
-		return 2*x*y+y; //This formula is wrong. current coordinate not same as x or y.
+	public double newPositionY(double x, double y, double currenty){
+		return 2*x*y+currenty; 
 	}
 	
 	
@@ -48,15 +48,16 @@ public class MandelbrotSet {
 	}
 	
 	// this is from the project instruction 
-	public int getEscapeTime(double xCal, double yCal){
-		double dist = this.distanceCalculator(xCal, yCal);
+	public int getEscapeTime(double currentx, double currenty){
+		double dist = this.distanceCalculator(currentx, currenty);
 		int passes = 0;
-		
+		double xCal = currentx;
+	    double yCal = currenty;
 		while(dist <= 2 && passes <255){
-			double tempX = xCal;
-			double tempY = yCal;
-			xCal = this.newPositionX(tempX, tempY);
-			yCal = this.newPositionY(tempX, tempY);
+			double tempx = xCal;
+		    double tempy = yCal;
+			xCal = this.newPositionX(tempx, tempy, currentx);
+			yCal = this.newPositionY(tempx, tempy, currenty);
 			dist = this.distanceCalculator(xCal, yCal);
 			passes += 1;
 		}
