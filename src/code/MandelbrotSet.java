@@ -23,18 +23,18 @@ public class MandelbrotSet {
 	
 	// this calculates distance
 	public double distanceCalculator(double x, double y){
-		return Math.sqrt((x*x) + (y*y));
+		return Math.sqrt((x*x) + (y*y)); 
 	}
 	
 	
 	//this calculates new x position
-	public double newPositionX(double x, double y){
-		return (x*x)-(y*y)+x;
+	public double newPositionX(double x, double y){ 
+		return (x*x)-(y*y)+x; //This formula is wrong. current coordinate not same as x or y.
 	}
 	
 	//this calculates new y position
 	public double newPositionY(double x, double y){
-		return 2*x*y+y;
+		return 2*x*y+y; //This formula is wrong. current coordinate not same as x or y.
 	}
 	
 	

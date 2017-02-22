@@ -69,6 +69,5 @@ public class BurningShipSet {
 	public double arrayToCoordinate(int i, double start, double end, int div){
 		double result = start + i * rangeInc(start, end, div);
 		return result;
-	}
-
+	}	
 }

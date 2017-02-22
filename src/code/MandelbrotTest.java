@@ -75,7 +75,7 @@ public class MandelbrotTest {
 		assertEquals(-0.775, x256, 0.0001);
 	}
 	
-	@Test
+	/*	@Test
 	public void test_getEscapeTime() {
 		double xCal = 0.3207031250000001;
 		double yCal = -0.07109374999999386;
@@ -98,6 +98,31 @@ public class MandelbrotTest {
 		
 		assertTrue(neverExceeds);
 		
+	}*/
+	
+	//Below Tests added by me. One of these is failing.
+	@Test
+	public void distanceNotPassedTest(){
+		//Test for the escape time for a coordinate whose distance from the origin never exceeds the escape distance 
+		int result = object.getEscapeTime(0.3207031250000001, -0.07109374999999386);
+		assertEquals(255, result);
 	}
+	
+	@Test
+	public void distancePassedTest(){
+		//Test for the escape time for a coordinate whose distance from the origin never exceeds the escape distance 
+		int result = object.getEscapeTime(0.5946289062500001, 1.2949218750000122);
+		assertEquals(1, result);
+	}
+	
+	@Test
+	public void fractalArrayReturnCheck(){
+		//Test that the fractal returns a 2-d array
+		int[][] result = object.returnResult();
+		assertEquals(512, result.length);
+		assertEquals(512, result[0].length);
+	}
+	
+
 
 }

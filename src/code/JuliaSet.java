@@ -36,19 +36,19 @@ public class JuliaSet {
 		_xCalc = calcCoords(x, y).x;
 		_yCalc = calcCoords(x, y).y;
 		double dist = Math.sqrt((_xCalc*_xCalc) +(_yCalc*_yCalc));
-		while (dist <= 2){
-			if (passes < 255){
+		while (dist <= 2 && passes < 255){
 				updateCoords(_xCalc, _yCalc);
 				passes++;
 				dist = Math.sqrt((_xCalc*_xCalc) +(_yCalc*_yCalc));
-			}
+			
 		}
 		esc = passes;
 		return esc;
 	}
 	
+	//This method is failing the test. Hardcoded numbers the problem.
 	public void updateCoords(double x, double y){
-		_xCalc = (x*x)-(y*y)-0.72689;
+		_xCalc = (x*x)-(y*y)-0.72689; //Use the current value of the point because you are looping through points for fractalCalc.
 		_yCalc = (2*x*y)+0.188887;
 	}
 	
@@ -59,6 +59,11 @@ public class JuliaSet {
 		p.x = ((xRange/ _row)*x) - _xHigh;
 		p.y = ((yRange/ _col)*y) - _yHigh;
 		return p;
+	}
+	
+	//Method Below added by me
+	public int[][] getFractal(){
+		return _fractal;
 	}
 	
 
