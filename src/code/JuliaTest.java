@@ -29,7 +29,6 @@ public class JuliaTest {
 		int row1 = 0;		
 		int row2 = 255;
 		int row3 = 511;
-		
 		int rows = 512;
 		double start = -1.7;
 		double end = 1.7;

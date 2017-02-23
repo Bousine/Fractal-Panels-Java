@@ -17,7 +17,6 @@ public class MultibrotSet {
 	private double _xCalc;
 	/** Stores updated value of y */
 	private double _yCalc;
-	
 	/** Minimum x-coordinate */
 	private double _xStart;
 	/** Maximum x-coordinate */
