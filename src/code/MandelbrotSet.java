@@ -3,6 +3,14 @@ package code;
 
 import java.awt.geom.Point2D;
 
+/**
+ * Class which calculates escape-time for a Mandelbrot fractal 
+ * 
+ * @author Mark Kayutkin
+ * @author Asif Hasan
+ * @author Xiangshuai Gao 
+ */
+
 public class MandelbrotSet {
 	
 	/** 

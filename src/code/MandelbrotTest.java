@@ -5,6 +5,16 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Class which tests escape-time for Mandelbrot fractal 
+ * 
+ * @author Mark Kayutkin
+ * @author Asif Hasan
+ * @author Xiangshuai Gao 
+ */
+
+
+
 public class MandelbrotTest {
 	/**
 	 * The class object being tested.
