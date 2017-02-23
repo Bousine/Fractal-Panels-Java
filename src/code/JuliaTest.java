@@ -17,7 +17,6 @@ public class JuliaTest {
 	
 	@Test
 	public void RowToXTest() {
-		
 		int row1 = 0;		
 		int row2 = 255;
 		int row3 = 511;
