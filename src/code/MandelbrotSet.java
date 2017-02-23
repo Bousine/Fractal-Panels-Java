@@ -5,10 +5,14 @@ import java.awt.geom.Point2D;
 
 public class MandelbrotSet {
 	
-	//this is the array that contains all 262144 pairs for the pixels.
+	/** 
+	 * this is the array that contains all 262144 escape time for the pixels.
+	 */
 	int[][] _escapeTime;
 	
-	// Constructor
+	/** 
+	 * Constructor
+	 */
 	public MandelbrotSet(){
 		_escapeTime = new int[512][512];
 		for(int y = 0; y < 512; y+=1){
@@ -21,25 +25,31 @@ public class MandelbrotSet {
 	}
 	
 	
-	// this calculates distance
+	/** 
+	 * this calculates distance
+	 */
 	public double distanceCalculator(double x, double y){
 		return Math.sqrt((x*x) + (y*y)); 
 	}
 	
 	
-	//this calculates new x position
+	/**
+	 * this calculates new x position
+	 */
 	public double newPositionX(double x, double y, double currentx){ 
 		return (x*x)-(y*y)+currentx; 
 	}
-	
-	//this calculates new y position
+	/**
+	 *this calculates new y position
+	 */
 	public double newPositionY(double x, double y, double currenty){
 		return 2*x*y+currenty; 
 	}
 	
 	
-	
-	// this returns the coordinate at _escapeTime[innerIndex] [outerIndex]
+	/**
+	 * this returns the coordinate at _escapeTime[innerIndex] [outerIndex]
+	 */
 	public Point2D.Double getCoordinates(int x, int y){
 		Point2D.Double point = new Point2D.Double();
 	    point.x = (x * (2.15+0.6)/512)-2.15;	
@@ -47,7 +57,9 @@ public class MandelbrotSet {
 		return point;
 	}
 	
-	// this is from the project instruction 
+	/**
+	 * this is the algorithm from the project instruction 
+	 */
 	public int getEscapeTime(double currentx, double currenty){
 		double dist = this.distanceCalculator(currentx, currenty);
 		int passes = 0;
@@ -66,7 +78,9 @@ public class MandelbrotSet {
 		
 	}
 	
-	// Returning the final result
+	/**
+	 * returning the final result
+	 */
  public int[][] returnResult(){
 	 return _escapeTime;
  }

@@ -6,14 +6,22 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class MandelbrotTest {
+	/**
+	 * The class object being tested.
+	 */
 	private MandelbrotSet object;
 	
-	
+	/**
+	 * Setup
+	 */
 	@Before
 	public void setup(){
 		object = new MandelbrotSet();
 	}
-
+    
+	/**
+	 * My distance test. Not required but nice when debugging
+	 */
 	@Test
 	public void test_distanceCalculator() {
 		double x1 = 4586.254;
@@ -27,7 +35,7 @@ public class MandelbrotTest {
 		assertEquals(1411.501022, object.distanceCalculator(x3, y3), 0.00001);
 	}
 	
-	/*
+	/**
 	 * Translate a pixel's row to the associated x-coordinate in the fractal 
 	 * Translate a pixel's column to the associated y-coordinate in the fractal
 	 */
@@ -48,21 +56,27 @@ public class MandelbrotTest {
 	}
 	
 	
-	
+	/**
+	 * Test for the escape time for a coordinate whose distance from the origin never exceeds the escape distance
+	 */
 	@Test
-	public void distanceNotPassedTest(){
-		//Test for the escape time for a coordinate whose distance from the origin never exceeds the escape distance 
+	public void distanceNotPassedTest(){ 
 		int result = object.getEscapeTime(0.3207031250000001, -0.07109374999999386);
 		assertEquals(255, result);
 	}
 	
+	/**
+	 * Calculates the escape time for a coordinate whose distance from the origin exceeds the escape distance after a single loop pass
+	 */
 	@Test
 	public void distancePassedTest(){
-		//Test for the escape time for a coordinate whose distance from the origin never exceeds the escape distance 
 		int result = object.getEscapeTime(0.5946289062500001, 1.2949218750000122);
 		assertEquals(1, result);
 	}
 	
+	/**
+	 * The method called to calculate the fractal returns a 2-d array with 512 rows and 512 columns.
+	 */
 	@Test
 	public void fractalArrayReturnCheck(){
 		//Test that the fractal returns a 2-d array
