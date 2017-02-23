@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Class for BurningShip Tests
+ * Class which contains BurningShip Tests
  * 
  * @author Mark Kayutkin
  * @author Asif Hasan
