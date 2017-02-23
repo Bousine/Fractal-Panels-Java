@@ -43,7 +43,6 @@ public class JuliaSet {
 				updateCoords(_xCalc, _yCalc);
 				passes++;
 				dist = Math.sqrt((_xCalc*_xCalc) +(_yCalc*_yCalc));
-			
 		}
 		esc = passes;
 		return esc;
