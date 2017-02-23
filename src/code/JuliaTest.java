@@ -25,7 +25,7 @@ public class JuliaTest {
 	@Test
 	public void distancePassedTest(){
 		//Test for the escape time for a coordinate whose distance from the origin never exceeds the escape distance 
-		int result = obj.calcEscapeTime (1.6933593749999853, 0.9765625);
+		int result = obj.calcEscapeTime(1.6933593749999853, 0.9765625);
 		assertEquals(1, result);
 	}
 	

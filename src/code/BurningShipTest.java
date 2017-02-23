@@ -47,7 +47,7 @@ public class BurningShipTest {
 	}	
 	
 	@Test
-	public void escapeTimeTest(){
+	public void distNotPassedTest(){
 		//Test for the escape time for a coordinate whose distance from the origin never exceeds the escape distance 
 		int result = obj.escapeTime(-1.7443359374999874, -0.017451171875000338);
 		assertEquals(255, result);
