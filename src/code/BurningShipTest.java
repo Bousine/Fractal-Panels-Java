@@ -42,7 +42,6 @@ public class BurningShipTest {
 	
 	/**
 	 * Test for translating column to y
-	 * 
 	 */
 	@Test
 	public void ColtoYTest() {

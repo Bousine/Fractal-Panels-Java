@@ -94,7 +94,7 @@ public class BurningShipSet {
 	}
 	
 	/**
-	 * Calculates increment of coordinate for each increment of row or column in 2-d array
+	 * Calculates increment of coordinates for each increment of row or column in 2-d array
 	 * @param start- minimum coordinate
 	 * @param end - maximum coordinate
 	 * @param div - number of row or column in 2-d array
