@@ -14,6 +14,38 @@ public class JuliaTest {
 	public void setup(){
 		obj = new JuliaSet();		
 	}
+	
+	@Test
+	public void RowToXTest() {
+		
+		int row1 = 0;		
+		int row2 = 255;
+		int row3 = 511;
+		
+		int rows = 512;
+		double start = -1.7;
+		double end = 1.7;
+	
+		assertEquals(-1.7, obj.arrayToCoordinate(row1, start, end, rows), 0.001);
+		assertEquals(-0.0066, obj.arrayToCoordinate(row2, start, end, rows), 0.001);
+		assertEquals(1.693, obj.arrayToCoordinate(row3, start, end, rows), 0.001);
+	}
+	
+	@Test
+	public void ColtoYTest() {
+		
+		int row1 = 0;		
+		int row2 = 255;
+		int row3 = 511;
+		
+		int cols = 512;
+		double start = -1.0;
+		double end = 1.0;
+	
+		assertEquals(-1.0, obj.arrayToCoordinate(row1, start, end, cols), 0.001);
+		assertEquals(-0.0039, obj.arrayToCoordinate(row2, start, end, cols), 0.001);
+		assertEquals(0.996, obj.arrayToCoordinate(row3, start, end, cols), 0.001);
+	}	
 
 	@Test
 	public void distanceNotPassedTest(){
@@ -36,6 +68,8 @@ public class JuliaTest {
 		assertEquals(512, result.length);
 		assertEquals(512, result[0].length);
 	}
+	
+	
 }
 
 
