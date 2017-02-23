@@ -1,8 +1,5 @@
 package code;
 
-import java.awt.Point;
-import java.awt.geom.Point2D;
-import java.awt.geom.Point2D.Double;
 
 public class JuliaSet {
 	private double _xCalc;
@@ -31,47 +28,49 @@ public class JuliaSet {
 		_yConstant = 0.188887;
 	}
 	
-	public int calcEscapeTime(double x, double y){
-		int esc = 0;
-		int passes = 0;
-		_xCurr = calcCoords(x, y).x;
-		_yCurr = calcCoords(x, y).y;
-		_xCalc = _xCurr;
-		_yCalc = _yCurr;
-		double dist = Math.sqrt((_xCalc*_xCalc) +(_yCalc*_yCalc));
-		while (dist <= 4 && passes < 255){
-				updateCoords(_xCalc, _yCalc);
-				passes++;
-				dist = Math.sqrt((_xCalc*_xCalc) +(_yCalc*_yCalc));
-		}
-		esc = passes;
-		return esc;
-	}
-	
-	
-	public void updateCoords(double x, double y){
-		_xCurr = (x*x)-(y*y)+_xConstant; 
-		_yCurr = (2*x*y)+_yConstant;
-	}
-	
-	public Point2D.Double calcCoords(double x, double y){
-		Point2D.Double p = new Point2D.Double();
-		double xRange = _xHigh - _xLow;
-		double yRange = _yHigh - _yLow;
-		p.x = ((xRange/ _row)*x) - _xHigh;
-		p.y = ((yRange/ _col)*y) - _yHigh;
-		return p;
-	}
-	
-	
-	public int[][] getFractal(){
-		for (int r = 0; r < _row; r++){
-			for (int c = 0; c < _col; c++){
-				_fractal[c][r] = calcEscapeTime(c,r);
+	public int[][] fractalCalc(){
+		int[][] grid = new int[_row][_col];
+		for(int row = 0; row < _row; row++){
+			for(int col = 0; col < _col; col++){
+				double resultX = arrayToCoordinate(row, _xLow, _xHigh, _row);
+				double resultY = arrayToCoordinate(col, _yLow, _yHigh, _col);
+				int escTime = escapeTime(resultX, resultY);
+				grid[row][col] = escTime;
 			}
 		}
-		return _fractal;
+		return grid;
 	}
 	
-
+	public void update(){
+		double i = _xCalc;
+		double j = _yCalc;
+		_xCalc = i*i - j*j +_xConstant;
+		_yCalc = (2*i*j) + _yConstant;
+	}
+	
+	public int escapeTime(double x, double y){
+		_xCurr = x;
+		_yCurr = y;
+		_xCalc = _xCurr;
+		_yCalc = _yCurr;
+		double dist = Math.sqrt(_xCalc*_xCalc + _yCalc*_yCalc);		
+		int passes = 0;
+		while(dist <= 2 && passes < 255){
+			update();
+			passes++;
+			dist = Math.sqrt(_xCalc*_xCalc + _yCalc*_yCalc);
+		}
+		int escTime = passes;
+		return escTime;
+	}
+	
+	public double rangeInc(double start, double end, int div){
+		double inc = (end - start) / div;
+		return inc;
+	}
+	
+	public double arrayToCoordinate(int i, double start, double end, int div){
+		double result = start + i * rangeInc(start, end, div);
+		return result;
+	}	
 }
