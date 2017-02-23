@@ -49,9 +49,9 @@ public class JuliaSet {
 		return esc;
 	}
 	
-	//This method is failing the test. Hardcoded numbers the problem.
+	
 	public void updateCoords(double x, double y){
-		_xCurr = (x*x)-(y*y)+_xConstant; //Use the current value of the point because you are looping through points for fractalCalc.
+		_xCurr = (x*x)-(y*y)+_xConstant; 
 		_yCurr = (2*x*y)+_yConstant;
 	}
 	
