@@ -29,7 +29,6 @@ public class JuliaTest {
 		assertEquals(1, result);
 	}
 	
-	
 	@Test
 	public void fractalArrayReturnCheck(){
 		//Test that the fractal returns a 2-d array

@@ -1,6 +1,7 @@
 package code;
 
 
+
 public class JuliaSet {
 	private double _xCalc;
 	private double _yCalc;
