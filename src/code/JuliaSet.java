@@ -63,7 +63,7 @@ public class JuliaSet {
 		return p;
 	}
 	
-	//Method Below added by me
+	
 	public int[][] getFractal(){
 		for (int r = 0; r < _row; r++){
 			for (int c = 0; c < _col; c++){
