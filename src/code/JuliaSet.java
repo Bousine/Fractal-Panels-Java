@@ -14,6 +14,10 @@ public class JuliaSet {
 	private double _xLow;
 	private double _yHigh;
 	private double _yLow;
+	private double _xConstant;
+	private double _yConstant;
+	private double _xCurr;
+	private double _yCurr;
 	
 	public JuliaSet(){
 		_row = 512;
@@ -23,33 +27,31 @@ public class JuliaSet {
 		_xLow = -1.7;
 		_yHigh = 1.0;
 		_yLow = -1.0;
-		for (int r = 0; r < _row; r++){
-			for (int c = 0; c < _col; c++){
-				_fractal[c][r] = calcEscapeTime(c,r);
-			}
-		}
+		_xConstant = -0.72689;
+		_yConstant = 0.188887;
 	}
 	
 	public int calcEscapeTime(double x, double y){
 		int esc = 0;
 		int passes = 0;
-		_xCalc = calcCoords(x, y).x;
-		_yCalc = calcCoords(x, y).y;
+		_xCurr = calcCoords(x, y).x;
+		_yCurr = calcCoords(x, y).y;
+		_xCalc = _xCurr;
+		_yCalc = _yCurr;
 		double dist = Math.sqrt((_xCalc*_xCalc) +(_yCalc*_yCalc));
-		while (dist <= 2 && passes < 255){
+		while (dist <= 4 && passes < 255){
 				updateCoords(_xCalc, _yCalc);
 				passes++;
 				dist = Math.sqrt((_xCalc*_xCalc) +(_yCalc*_yCalc));
-			
 		}
 		esc = passes;
 		return esc;
 	}
 	
-	//This method is failing the test. Hardcoded numbers the problem.
+	
 	public void updateCoords(double x, double y){
-		_xCalc = (x*x)-(y*y)-0.72689; //Use the current value of the point because you are looping through points for fractalCalc.
-		_yCalc = (2*x*y)+0.188887;
+		_xCurr = (x*x)-(y*y)+_xConstant; 
+		_yCurr = (2*x*y)+_yConstant;
 	}
 	
 	public Point2D.Double calcCoords(double x, double y){
@@ -61,8 +63,13 @@ public class JuliaSet {
 		return p;
 	}
 	
-	//Method Below added by me
+	
 	public int[][] getFractal(){
+		for (int r = 0; r < _row; r++){
+			for (int c = 0; c < _col; c++){
+				_fractal[c][r] = calcEscapeTime(c,r);
+			}
+		}
 		return _fractal;
 	}
 	
