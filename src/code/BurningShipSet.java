@@ -84,7 +84,7 @@ public class BurningShipSet {
 		_yCalc = _currentY;
 		double dist = Math.sqrt(_xCalc*_xCalc + _yCalc*_yCalc);		
 		int passes = 0;
-		while(dist <= 4 && passes < 255){
+		while(dist <= 2 && passes < 255){
 			update();
 			passes++;
 			dist = Math.sqrt(_xCalc*_xCalc + _yCalc*_yCalc);
