@@ -1,22 +1,43 @@
 package code;
 
+/**
+ * Class which calculates escape-time in its methods to generate a Julia fractal 
+ * 
+ * @author Mark Kayutkin
+ * @author Asif Hasan
+ * @author Xiangshuai Gao 
+ */
 
 
 public class JuliaSet {
+	/** Stores updated value of x */
 	private double _xCalc;
+	/** Stores updated value of y */
 	private double _yCalc;
+	/** Number of rows */
 	private int _row;
+	/** Number of columns */
 	private int _col;
+	/** 2-d array which contains the respective escape-time of the points */
 	int[][] _fractal;
+	/** Maximum x-coordinate */
 	private double _xHigh;
+	/** Minimum x-coordinate */
 	private double _xLow;
+	/** Maximum y-coordinate */
 	private double _yHigh;
+	/** Minimum y-coordinate */
 	private double _yLow;
+	/** Constant added to x-coordinate */
 	private double _xConstant;
+	/** Constant added to y-coordinate */
 	private double _yConstant;
+	/** Stores the current x-coordinate of the point */
 	private double _xCurr;
+	/** Stores the current y-coordinate of the point */
 	private double _yCurr;
 	
+	/** Constructor to instantiate instance variables */
 	public JuliaSet(){
 		_row = 512;
 		_col = 512;
@@ -29,6 +50,11 @@ public class JuliaSet {
 		_yConstant = 0.188887;
 	}
 	
+	/**
+	 * Calculates the escape-times of all points in the fractal
+	 * 
+	 * @return 2-d array which contains the respective escape-time of the points
+	 */
 	public int[][] fractalCalc(){
 		int[][] grid = new int[_row][_col];
 		for(int row = 0; row < _row; row++){
@@ -42,6 +68,9 @@ public class JuliaSet {
 		return grid;
 	}
 	
+	/**
+	 * Updates the values of _xCalc and _yCalc
+	 */
 	public void update(){
 		double i = _xCalc;
 		double j = _yCalc;
@@ -49,6 +78,12 @@ public class JuliaSet {
 		_yCalc = (2*i*j) + _yConstant;
 	}
 	
+	/**
+	 * Uses escape-time algorithm to calculate the escape time of a point
+	 * @param x-coordinate of the point
+	 * @param y-coordinate of the point
+	 * @return Escape-time for the corresponding point
+	 */
 	public int escapeTime(double x, double y){
 		_xCurr = x;
 		_yCurr = y;
@@ -65,11 +100,26 @@ public class JuliaSet {
 		return escTime;
 	}
 	
+	/**
+	 * Calculates increment of coordinates for each increment of row or column in 2-d array
+	 * @param start- minimum coordinate
+	 * @param end - maximum coordinate
+	 * @param div - number of row or column in 2-d array
+	 * @return increment of coordinates
+	 */
 	public double rangeInc(double start, double end, int div){
 		double inc = (end - start) / div;
 		return inc;
 	}
 	
+	/**
+	 * Translates array to coordinates
+	 * @param i- row or column number in 2-d array
+	 * @param start- minimum coordinate
+	 * @param end - maximum coordinate
+	 * @param div - number of row or column in 2-d array
+	 * @return The corresponding x or y coordinate
+	 */
 	public double arrayToCoordinate(int i, double start, double end, int div){
 		double result = start + i * rangeInc(start, end, div);
 		return result;

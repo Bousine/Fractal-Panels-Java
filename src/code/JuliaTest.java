@@ -6,15 +6,24 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Class which contains BurningShip Tests
+ * 
+ * @author Mark Kayutkin
+ * @author Asif Hasan
+ * @author Xiangshuai Gao
+ */
 public class JuliaTest {
 	private JuliaSet obj;
 	
-	//Added tests except the first two. One of the tests below is failing. 
 	@Before
 	public void setup(){
 		obj = new JuliaSet();		
 	}
 	
+	/**
+	 * Test for translating row to x
+	 */
 	@Test
 	public void RowToXTest() {
 		int row1 = 0;		
@@ -30,6 +39,9 @@ public class JuliaTest {
 		assertEquals(1.693, obj.arrayToCoordinate(row3, start, end, rows), 0.001);
 	}
 	
+	/**
+	 * Test for translating column to y
+	 */
 	@Test
 	public void ColtoYTest() {
 		
@@ -46,6 +58,9 @@ public class JuliaTest {
 		assertEquals(0.996, obj.arrayToCoordinate(row3, start, end, cols), 0.001);
 	}	
 
+	/**
+	 * Test for the escape time for a coordinate whose distance from the origin never exceeds the escape distance 
+	 */
 	@Test
 	public void distanceNotPassedTest(){
 		//Test for the escape time for a coordinate whose distance from the origin never exceeds the escape distance 
@@ -53,6 +68,9 @@ public class JuliaTest {
 		assertEquals(255, result);
 	}
 	
+	/**
+	 * Test for the escape time for a coordinate whose distance from the origin exceeds the escape distance after a single loop
+	 */
 	@Test
 	public void distancePassedTest(){
 		//Test for the escape time for a coordinate whose distance from the origin never exceeds the escape distance 
@@ -60,6 +78,9 @@ public class JuliaTest {
 		assertEquals(1, result);
 	}
 	
+	/**
+	 * Test that the fractal returns a 2-d array
+	 */
 	@Test
 	public void fractalArrayReturnCheck(){
 		//Test that the fractal returns a 2-d array
