@@ -29,7 +29,6 @@ public class JuliaSet {
 		_yLow = -1.0;
 		_xConstant = -0.72689;
 		_yConstant = 0.188887;
-		
 	}
 	
 	public int calcEscapeTime(double x, double y){
