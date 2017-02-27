@@ -1,0 +1,22 @@
+Meeting Minutes for ___2/27/17____:
+
+Meeting Attendance:
+  *Asif	
+  *Gao
+  *Mark M
+
+Tasks completed since last meeting:
+  *Added gui class
+  *
+
+Tasks started, but not completed, since last meeting:
+  *N/A
+  *
+
+Tasks to be worked on (and by which team members) for the next meeting:
+  *Add basic gui units (window, designated panels and possibly menus) into gui class (all members)
+  *
+
+Schedule for the next week's set of pair programming meetings:
+  *recitation meeting (3/6/17)
+  *
