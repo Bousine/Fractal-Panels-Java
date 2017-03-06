@@ -1,0 +1,24 @@
+Meeting Minutes for ___3/6/17____:
+
+Meeting Attendance:
+  *Asif	
+  *Gao
+  *Mark M
+
+Tasks completed since last meeting:
+  *Fixed menu gui
+  *made project runnable
+  *imported color class
+
+Tasks started, but not completed, since last meeting:
+  *button functionality
+  *color implementation
+  *escapetime implementation
+
+Tasks to be worked on (and by which team members) for the next meeting:
+  *button funtionality (all)
+  *
+
+Schedule for the next week's set of pair programming meetings:
+  *recitation meeting (3/13/17)
+  *
