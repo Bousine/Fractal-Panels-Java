@@ -11,7 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import edu.buffalo.fractal.FractalPanel;
 
 public class Gui implements Runnable {
 	public void gui() {
@@ -20,7 +19,6 @@ public class Gui implements Runnable {
 
 	@Override
 	public void run() {
-		FractalPanel f = new FractalPanel();
 		int w = 600;
 		int h = 600;
 		JFrame window = new JFrame("Fractal Builder");
@@ -37,6 +35,7 @@ public class Gui implements Runnable {
 		menu.add(new JLabel("Color:"));
 		menu.add(new JLabel("Escape Time:"));
 		JButton exit = new JButton("Exit");
+		exit.addActionListener(new ExitListener());
 		menu.add(exit);
 		JButton bsset = new JButton("Burning Ship");
 		menu.add(bsset);
