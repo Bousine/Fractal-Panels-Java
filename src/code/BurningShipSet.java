@@ -127,6 +127,10 @@ public class BurningShipSet {
 		_escDist = i;
 	}
 	
+	public int getEscapeDistance(){
+		return _escDist;
+	}
+	
 	public void addObserver(MenuPanel g){
 		_menu = g;
 	}

@@ -27,7 +27,7 @@ public class InputListener implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		String text = _t.getText();
 		int d = Integer.parseInt(text);
-		_bs.setEscapeDistance(d);
+//		_bs.setEscapeDistance(d);
 	}
 	
 

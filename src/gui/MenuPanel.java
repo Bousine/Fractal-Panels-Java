@@ -202,11 +202,11 @@ public class MenuPanel extends JPanel{
 		JButton color4 = new JButton("Color 4");
 		this.add(color4);
 		this.add(new JLabel());
-		
-		_bs.addObserver(this);
+				
+  /*	_bs.addObserver(this);
 		_js.addObserver(this);
 		_mandel.addObserver(this);
-		_multi.addObserver(this);
+		_multi.addObserver(this);*/
 	}
 	
 	
