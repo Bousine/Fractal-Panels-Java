@@ -3,6 +3,8 @@ package code;
 
 import java.awt.geom.Point2D;
 
+import gui.MenuPanel;
+
 /**
  * Class which calculates escape-time for a Mandelbrot fractal 
  * 
@@ -19,6 +21,9 @@ public class MandelbrotSet {
 	int[][] _escapeTime;
 	/** Escape Distance */
 	private int _escDist;
+	/**Menu*/
+	private MenuPanel _menu;
+	
 	/** 
 	 * Constructor
 	 */
@@ -97,6 +102,10 @@ public class MandelbrotSet {
 
 	public void setEscapeDistance(int i){
 		_escDist = i;
+	}
+	
+	public void addObserver(MenuPanel g){
+		_menu = g;
 	}
 
 }

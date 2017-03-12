@@ -1,5 +1,7 @@
 package code;
 
+import gui.MenuPanel;
+
 /**
  * Class which calculates escape-time in its methods to generate a Julia fractal 
  * 
@@ -38,6 +40,8 @@ public class JuliaSet {
 	private double _yCurr;
 	/** Escape Distance */
 	private int _escDist;
+	/**Menu*/
+	private MenuPanel _menu;
 	
 	/** Constructor to instantiate instance variables */
 	public JuliaSet(){
@@ -130,5 +134,9 @@ public class JuliaSet {
 	
 	public void setEscapeDistance(int i){
 		_escDist = i;
+	}
+	
+	public void addObserver(MenuPanel g){
+		_menu = g;
 	}
 }

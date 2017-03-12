@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 import java.text.NumberFormat;
 
 import javax.swing.BorderFactory;
@@ -12,16 +13,27 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.text.NumberFormatter;
 
-import gui.ActionListerners.ExitListener;
+import code.*;
+import gui.ActionListerners.*;
 
 
 public class MenuPanel extends JPanel{
+	
+	private BurningShipSet _bs;
+	private JuliaSet _js;
+	private MandelbrotSet _mandel;
+	private MultibrotSet _multi;
 	
 	public MenuPanel(){
 		super();
 		this.setLayout(new GridLayout(0,4));
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
 		this.MasterSetUP();
+		
+		_bs = new BurningShipSet();
+		_js = new JuliaSet();
+		_mandel = new MandelbrotSet();
+		_multi = new MultibrotSet();
 		
 	}
 	
@@ -165,6 +177,8 @@ public class MenuPanel extends JPanel{
 		formatter.setMinimum(0);
 		formatter.setAllowsInvalid(true);
 		JFormattedTextField field = new JFormattedTextField(formatter);
+		ActionListener x = new InputListener(field, _bs, _js, _mandel, _multi);
+		field.addActionListener(x);
 		this.add(field);
 		
 		this.add(new JLabel());
@@ -189,6 +203,10 @@ public class MenuPanel extends JPanel{
 		this.add(color4);
 		this.add(new JLabel());
 		
+		_bs.addObserver(this);
+		_js.addObserver(this);
+		_mandel.addObserver(this);
+		_multi.addObserver(this);
 	}
 	
 	

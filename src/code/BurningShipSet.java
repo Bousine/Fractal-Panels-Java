@@ -1,5 +1,7 @@
 package code;
 
+import gui.*;
+
 /**
  * Class which calculates escape-time in its methods to generate a Burning Ship fractal 
  * 
@@ -32,6 +34,8 @@ public class BurningShipSet {
 	private int _noOfCols;
 	/** Escape Distance */
 	private int _escDist;
+	/**Menu*/
+	private MenuPanel _menu;
 	
 	/** Constructor to instantiate instance variables */
 	public BurningShipSet(){
@@ -121,5 +125,9 @@ public class BurningShipSet {
 	
 	public void setEscapeDistance(int i){
 		_escDist = i;
+	}
+	
+	public void addObserver(MenuPanel g){
+		_menu = g;
 	}
 }
