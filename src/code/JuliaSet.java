@@ -36,6 +36,8 @@ public class JuliaSet {
 	private double _xCurr;
 	/** Stores the current y-coordinate of the point */
 	private double _yCurr;
+	/** Escape Distance */
+	private int _escDist;
 	
 	/** Constructor to instantiate instance variables */
 	public JuliaSet(){
@@ -48,6 +50,7 @@ public class JuliaSet {
 		_yLow = -1.0;
 		_xConstant = -0.72689;
 		_yConstant = 0.188887;
+		_escDist = 2;
 	}
 	
 	/**
@@ -124,4 +127,8 @@ public class JuliaSet {
 		double result = start + i * rangeInc(start, end, div);
 		return result;
 	}	
+	
+	public void setEscapeDistance(int i){
+		_escDist = i;
+	}
 }

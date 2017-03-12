@@ -30,6 +30,8 @@ public class BurningShipSet {
 	private double _yEnd;
 	/** Number of columns */
 	private int _noOfCols;
+	/** Escape Distance */
+	private int _escDist;
 	
 	/** Constructor to instantiate instance variables */
 	public BurningShipSet(){
@@ -39,6 +41,7 @@ public class BurningShipSet {
 		_yStart = -0.08;
 		_yEnd = 0.025;
 		_noOfCols = 512;
+		_escDist = 2;
 	}
 	
 	/**
@@ -114,5 +117,9 @@ public class BurningShipSet {
 	public double arrayToCoordinate(int i, double start, double end, int div){
 		double result = start + i * rangeInc(start, end, div);
 		return result;
-	}	
+	}
+	
+	public void setEscapeDistance(int i){
+		_escDist = i;
+	}
 }

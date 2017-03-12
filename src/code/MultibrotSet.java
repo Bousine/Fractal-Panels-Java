@@ -29,6 +29,8 @@ public class MultibrotSet {
 	private double _yEnd;
 	/** Number of columns */
 	private int _noOfCols;
+	/** Escape Distance */
+	private int _escDist;
 	
 	/** Constructor to instantiate instance variables */
 	public MultibrotSet(){
@@ -38,6 +40,7 @@ public class MultibrotSet {
 		_yStart = -1.3;
 		_yEnd = 1.3;
 		_noOfCols = 512;
+		_escDist = 2;
 	}
 	
 	/**
@@ -114,6 +117,9 @@ public class MultibrotSet {
 		double result = start + i * rangeInc(start, end, div);
 		return result;
 	}
-
+	
+	public void setEscapeDistance(int i){
+		_escDist = i;
+	}
 
 }

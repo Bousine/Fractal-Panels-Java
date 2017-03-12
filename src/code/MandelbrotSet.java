@@ -17,11 +17,13 @@ public class MandelbrotSet {
 	 * this is the array that contains all 262144 escape time for the pixels.
 	 */
 	int[][] _escapeTime;
-	
+	/** Escape Distance */
+	private int _escDist;
 	/** 
 	 * Constructor
 	 */
 	public MandelbrotSet(){
+		_escDist = 2;
 		_escapeTime = new int[512][512];
 		for(int y = 0; y < 512; y+=1){
 			for(int x = 0; x<512; x+=1){
@@ -89,11 +91,12 @@ public class MandelbrotSet {
 	/**
 	 * returning the final result
 	 */
- public int[][] returnResult(){
-	 return _escapeTime;
- }
+	public int[][] returnResult(){
+		return _escapeTime;
+	}
 
-	
-
+	public void setEscapeDistance(int i){
+		_escDist = i;
+	}
 
 }
