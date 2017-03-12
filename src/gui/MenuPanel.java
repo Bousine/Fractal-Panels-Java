@@ -35,7 +35,7 @@ public class MenuPanel extends JPanel{
 	}
 	
 	public void TextFieldReset(){
-		
+		_inputField.setText("");
 	}
 	
 	
