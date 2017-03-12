@@ -20,7 +20,7 @@ public class MandelbrotSet {
 	 */
 	int[][] _escapeTime;
 	/** Escape Distance */
-	private int _escDist;
+	private double _escDist;
 	/**Menu*/
 	private MenuPanel _menu;
 	
@@ -30,13 +30,22 @@ public class MandelbrotSet {
 	public MandelbrotSet(){
 		_escDist = 2;
 		_escapeTime = new int[512][512];
+		/*for(int y = 0; y < 512; y+=1){
+			for(int x = 0; x<512; x+=1){
+				Point2D.Double point = this.getCoordinates(x, y);
+				_escapeTime[x][y] = this.getEscapeTime(point.x, point.y);
+			}
+		}*/		
+	}
+	
+	public int[][] fractalCalc(){
 		for(int y = 0; y < 512; y+=1){
 			for(int x = 0; x<512; x+=1){
 				Point2D.Double point = this.getCoordinates(x, y);
 				_escapeTime[x][y] = this.getEscapeTime(point.x, point.y);
 			}
 		}
-		
+		return _escapeTime;
 	}
 	
 	
@@ -80,7 +89,7 @@ public class MandelbrotSet {
 		int passes = 0;
 		double xCal = currentx;
 	    double yCal = currenty;
-		while(dist <= 2 && passes <255){
+		while(dist <= _escDist && passes <255){
 			double tempx = xCal;
 		    double tempy = yCal;
 			xCal = this.newPositionX(tempx, tempy, currentx);
@@ -100,12 +109,12 @@ public class MandelbrotSet {
 		return _escapeTime;
 	}
 
-	public void setEscapeDistance(int i){
+	public void setEscapeDistance(double i){
 		_escDist = i;
 	}
 	
-	public void addObserver(MenuPanel g){
+/*	public void addObserver(MenuPanel g){
 		_menu = g;
-	}
+	}*/
 
 }

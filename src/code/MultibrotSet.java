@@ -32,7 +32,7 @@ public class MultibrotSet {
 	/** Number of columns */
 	private int _noOfCols;
 	/** Escape Distance */
-	private int _escDist;
+	private double _escDist;
 	/**Menu*/
 	private MenuPanel _menu;
 	
@@ -88,7 +88,7 @@ public class MultibrotSet {
 		_yCalc = _currentY;
 		double dist = Math.sqrt(_xCalc*_xCalc + _yCalc*_yCalc);		
 		int passes = 0;
-		while(dist <= 2 && passes < 255){
+		while(dist <= _escDist && passes < 255){
 			update();
 			passes++;
 			dist = Math.sqrt(_xCalc*_xCalc + _yCalc*_yCalc);
@@ -122,12 +122,12 @@ public class MultibrotSet {
 		return result;
 	}
 	
-	public void setEscapeDistance(int i){
+	public void setEscapeDistance(double i){
 		_escDist = i;
 	}
 	
-	public void addObserver(MenuPanel g){
+/*	public void addObserver(MenuPanel g){
 		_menu = g;
-	}
+	}*/
 
 }

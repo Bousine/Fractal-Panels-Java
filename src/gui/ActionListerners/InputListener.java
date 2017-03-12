@@ -26,6 +26,7 @@ public class InputListener implements ActionListener{
 			}
 			_model.SetInput(inputValue);
 			_panel.TextFieldReset();
+			_model.escapeDistUpdate();
 		}
 		catch(NumberFormatException d){
 			_panel.TextFieldReset();

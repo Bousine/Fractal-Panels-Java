@@ -39,7 +39,7 @@ public class JuliaSet {
 	/** Stores the current y-coordinate of the point */
 	private double _yCurr;
 	/** Escape Distance */
-	private int _escDist;
+	private double _escDist;
 	/**Menu*/
 	private MenuPanel _menu;
 	
@@ -98,7 +98,7 @@ public class JuliaSet {
 		_yCalc = _yCurr;
 		double dist = Math.sqrt(_xCalc*_xCalc + _yCalc*_yCalc);		
 		int passes = 0;
-		while(dist <= 2 && passes < 255){
+		while(dist <= _escDist && passes < 255){
 			update();
 			passes++;
 			dist = Math.sqrt(_xCalc*_xCalc + _yCalc*_yCalc);
@@ -132,11 +132,11 @@ public class JuliaSet {
 		return result;
 	}	
 	
-	public void setEscapeDistance(int i){
+	public void setEscapeDistance(double i){
 		_escDist = i;
 	}
 	
-	public void addObserver(MenuPanel g){
+/*	public void addObserver(MenuPanel g){
 		_menu = g;
-	}
+	}*/
 }
