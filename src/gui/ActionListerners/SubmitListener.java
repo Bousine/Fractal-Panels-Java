@@ -4,20 +4,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
-
 import edu.buffalo.cse116.Model;
 import gui.MenuPanel;
 
-public class InputListener implements ActionListener{
+public class SubmitListener implements ActionListener{
 	private Model _model;
 	private MenuPanel _panel;
-	public InputListener(Model model, MenuPanel panel){
+	public SubmitListener(Model model, MenuPanel panel){
 		_model = model;
 		_panel = panel;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) throws NumberFormatException{
+		System.out.println(_panel.getTextField());
 		double inputValue;
 		try{
 			inputValue = Double.parseDouble(_panel.getTextField());

@@ -2,23 +2,27 @@ package gui;
 
 import java.awt.Color;
 import java.awt.GridLayout;
-import java.text.NumberFormat;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.text.NumberFormatter;
 
+import edu.buffalo.cse116.Model;
 import gui.ActionListerners.ExitListener;
+import gui.ActionListerners.InputListener;
 
 
 public class MenuPanel extends JPanel{
+	private JTextField _inputField;
+	private Model _model;
 	
-	public MenuPanel(){
+	public MenuPanel(Model model){
 		super();
+		_model = model;
+		_inputField = new JTextField("");
+		_inputField.setEditable(true);
 		this.setLayout(new GridLayout(0,4));
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
 		this.MasterSetUP();
@@ -26,7 +30,13 @@ public class MenuPanel extends JPanel{
 	}
 	
 	
+	public String getTextField(){
+		return _inputField.getText();
+	}
 	
+	public void TextFieldReset(){
+		
+	}
 	
 	
 	
@@ -149,23 +159,14 @@ public class MenuPanel extends JPanel{
 		this.add(new JLabel("Fractal:"));
 		this.add(new JLabel("Color:"));
 		this.add(new JLabel("Escape Time:"));
-		
 		JButton Exit = new JButton("Exit");
 		Exit.addActionListener(new ExitListener());
 		this.add(Exit);
-		
 		JButton bsset = new JButton("Burning Ship");
 		this.add(bsset);
 		JButton color1 = new JButton("Color 1");
 		this.add(color1);
-		
-		NumberFormat format = NumberFormat.getNumberInstance();
-		format.setGroupingUsed(false);
-		NumberFormatter formatter = new NumberFormatter(format);
-		formatter.setMinimum(0);
-		formatter.setAllowsInvalid(true);
-		JFormattedTextField field = new JFormattedTextField(formatter);
-		this.add(field);
+		this.add(_inputField);
 		
 		this.add(new JLabel());
 		JButton jset = new JButton("Julia");
@@ -173,6 +174,7 @@ public class MenuPanel extends JPanel{
 		JButton color2 = new JButton("Color 2");
 		this.add(color2);
 		JButton submit = new JButton("Submit");
+		submit.addActionListener(new InputListener(_model, this));
 		this.add(submit);
 		
 		this.add(new JLabel());
