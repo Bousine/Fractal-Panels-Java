@@ -1,6 +1,6 @@
 package code;
 
-import gui.MenuPanel;
+
 
 /**
  * Class which calculates escape-time in its methods to generate a Multibrot fractal 
@@ -34,7 +34,7 @@ public class MultibrotSet {
 	/** Escape Distance */
 	private double _escDist;
 	/**Menu*/
-	private MenuPanel _menu;
+	
 	
 	/** Constructor to instantiate instance variables */
 	public MultibrotSet(){

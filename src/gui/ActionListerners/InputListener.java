@@ -6,33 +6,35 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 import edu.buffalo.cse116.Model;
-import gui.MenuPanel;
+import gui.DropDownMeun;
+
 
 public class InputListener implements ActionListener{
 	private Model _model;
-	private MenuPanel _panel;
-	public InputListener(Model model, MenuPanel panel){
+	private DropDownMeun _menu;
+	public InputListener(Model model){
 		_model = model;
-		_panel = panel;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) throws NumberFormatException{
 		double inputValue;
+		String input = JOptionPane.showInputDialog("Enter a number greater than 0");
+		
+		do{
 		try{
-			inputValue = Double.parseDouble(_panel.getTextField());
+			inputValue = Double.parseDouble(input);
 			if(!(inputValue>0)){
 				throw new NumberFormatException();
 			}
-			_model.SetInput(inputValue);
-			_panel.TextFieldReset();
-			_model.escapeDistUpdate();
+			_model.SetInputDistance(inputValue);
+			break;
 		}
 		catch(NumberFormatException d){
-			_panel.TextFieldReset();
-			JOptionPane.showMessageDialog(null,"Please Enter a number greater than 0","INVALID INPUT",JOptionPane.WARNING_MESSAGE);
-		}
-		
+			input = JOptionPane.showInputDialog("Invalid value, try again");
+		 }
+		}while(true);		
 	
 	}
 }
+

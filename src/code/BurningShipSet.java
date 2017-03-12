@@ -35,7 +35,7 @@ public class BurningShipSet {
 	/** Escape Distance */
 	private double _escDist;
 	/**Menu*/
-	private MenuPanel _menu;
+	
 	
 	/** Constructor to instantiate instance variables */
 	public BurningShipSet(){
