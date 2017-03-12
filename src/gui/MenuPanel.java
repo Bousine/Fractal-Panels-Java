@@ -151,7 +151,7 @@ public class MenuPanel extends JPanel{
 	
 	
 	/**
-	 * This makes me so dizzy. I a placing it all the way at the back if you don't mind
+	 * This makes me so dizzy. I am placing it all the way at the back if you don't mind
 	 * 
 	 */
 	public void MasterSetUP(){
