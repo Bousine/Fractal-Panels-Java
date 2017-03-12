@@ -1,7 +1,5 @@
 package code;
 
-import java.awt.Point;
-
 /**
  * Class which calculates escape-time in its methods to generate a Burning Ship fractal 
  * 
