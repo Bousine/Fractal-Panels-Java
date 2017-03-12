@@ -11,7 +11,6 @@ import gui.DropDownMeun;
 
 public class InputListener implements ActionListener{
 	private Model _model;
-	private DropDownMeun _menu;
 	public InputListener(Model model){
 		_model = model;
 	}
