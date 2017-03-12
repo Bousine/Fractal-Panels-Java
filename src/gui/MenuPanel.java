@@ -2,12 +2,15 @@ package gui;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.text.NumberFormat;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.text.NumberFormatter;
 
 import gui.ActionListerners.ExitListener;
 
@@ -146,14 +149,23 @@ public class MenuPanel extends JPanel{
 		this.add(new JLabel("Fractal:"));
 		this.add(new JLabel("Color:"));
 		this.add(new JLabel("Escape Time:"));
+		
 		JButton Exit = new JButton("Exit");
 		Exit.addActionListener(new ExitListener());
 		this.add(Exit);
+		
 		JButton bsset = new JButton("Burning Ship");
 		this.add(bsset);
 		JButton color1 = new JButton("Color 1");
 		this.add(color1);
-		this.add(new JTextField());
+		
+		NumberFormat format = NumberFormat.getNumberInstance();
+		format.setGroupingUsed(false);
+		NumberFormatter formatter = new NumberFormatter(format);
+		formatter.setMinimum(0);
+		formatter.setAllowsInvalid(true);
+		JFormattedTextField field = new JFormattedTextField(formatter);
+		this.add(field);
 		
 		this.add(new JLabel());
 		JButton jset = new JButton("Julia");
