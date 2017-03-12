@@ -13,5 +13,6 @@ public class Model {
          
          public void SetInputDistance(double input){
         	 _inputDistance = input;
+        	 
          }
 }

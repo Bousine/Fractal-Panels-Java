@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 import edu.buffalo.cse116.Model;
-import gui.DropDownMeun;
+import gui.DropDownMenu;
 
 
 public class InputListener implements ActionListener{

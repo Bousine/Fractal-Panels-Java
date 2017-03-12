@@ -9,17 +9,19 @@ import edu.buffalo.fractal.FractalPanel;
 public class Gui extends JFrame {
 	private static final long serialVersionUID = 1L;
     private Model _model;
+    private FractalPanel _f = new FractalPanel();
 	
 	public  Gui(Model model) {
 		super("Fractal Builder");
-		FractalPanel f = new FractalPanel();
 		_model = model;
 		this.setSize(600, 600);
-	    this.add(new DropDownMeun(_model), BorderLayout.NORTH);
+	    this.add(new DropDownMenu(_model), BorderLayout.NORTH);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.add(f);
+		this.add(_f);
 	}
+	
+	
 
 	
 	

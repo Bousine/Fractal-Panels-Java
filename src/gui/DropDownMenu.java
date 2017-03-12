@@ -6,15 +6,17 @@ import javax.swing.JMenuItem;
 import javax.swing.JTextField;
 
 import edu.buffalo.cse116.Model;
+import gui.ActionListerners.ColorListener;
+import gui.ActionListerners.SetListener;
 import gui.ActionListerners.ExitListener;
 import gui.ActionListerners.InputListener;
 
 
-public class DropDownMeun extends JMenuBar{
+public class DropDownMenu extends JMenuBar{
 	private static final long serialVersionUID = 1L;
 	private Model _model;
 	
-	public DropDownMeun(Model model){
+	public DropDownMenu(Model model){
 		super();
 		_model = model;
 		this.MasterSetUP();
@@ -50,84 +52,7 @@ public class DropDownMeun extends JMenuBar{
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	
@@ -143,7 +68,6 @@ public class DropDownMeun extends JMenuBar{
 		JMenu fractals = new JMenu("Fractals");
 		JMenu colors = new JMenu("Colors");
 		JMenu distance = new JMenu("Distance");
-		
 		JMenuItem exit = new JMenuItem("Exit");
 		exit.addActionListener(new ExitListener());
 		
@@ -152,9 +76,12 @@ public class DropDownMeun extends JMenuBar{
 		JMenuItem mandel = new JMenuItem("Mandelbrot set");
 		JMenuItem multi = new JMenuItem("Multibrot set");
 		
-		JMenuItem color1 = new JMenuItem("color 1");
-		JMenuItem color2 = new JMenuItem("color 2");
-		JMenuItem color3 = new JMenuItem("color 3");
+		JMenuItem color1 = new JMenuItem("Raindow");
+		color1.addActionListener(new ColorListener(1));
+		JMenuItem color2 = new JMenuItem("Blues");
+		color1.addActionListener(new ColorListener(2));
+		JMenuItem color3 = new JMenuItem("Gray");
+		color1.addActionListener(new ColorListener(3));
 		JMenuItem color4 = new JMenuItem("color 4");
 		
 		JMenuItem submit= new JMenuItem("New Escape Distance");
