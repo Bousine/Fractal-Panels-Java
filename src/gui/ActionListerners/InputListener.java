@@ -33,6 +33,10 @@ public class InputListener implements ActionListener{
 		catch(NumberFormatException d){
 			input = JOptionPane.showInputDialog("Invalid value, try again");
 		 }
+		catch(NullPointerException f){
+			break;
+		}
+		
 		}while(true);		
 	
 	}
