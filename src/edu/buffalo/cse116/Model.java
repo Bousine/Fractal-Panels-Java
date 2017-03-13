@@ -14,6 +14,7 @@ public class Model {
 	
 		 private FractalPanel _f = new FractalPanel();
          private double _inputDistance = 2;
+         private int _inputFractal = -1;
          private Gui window;
          
          
@@ -25,7 +26,11 @@ public class Model {
          
          public void SetInputDistance(double input){
         	 _inputDistance = input;
+        	 if(!(_inputFractal==-1)){
+        		 this.SetFractal(_inputFractal);
+        	 }
          }
+         
          
          public void SetColor(int c){
         	 if (c==1){
@@ -39,6 +44,9 @@ public class Model {
         	 }
         	 if (c==4){
         		 _f.setIndexColorModel(ColorModelFactory.createGreensColorModel(256));
+        	 }
+        	 if(!(_inputFractal==-1)){
+        		 this.SetFractal(_inputFractal);
         	 }
         	 
          }
@@ -60,6 +68,6 @@ public class Model {
         		 MultibrotSet mls = new MultibrotSet(_inputDistance);
          		_f.updateImage(mls.fractalCalc());
         	 }
-        	 
+        	 _inputFractal = s;
          }
 }
