@@ -1,0 +1,25 @@
+Meeting Minutes for ___2/13/17____:
+
+Meeting Attendance:
+  *Asif	
+  *Gao
+  *Mark M
+
+Tasks completed since last meeting:
+  *Drop down menu
+  *All option funtionality in menu (except distance)
+  *Added 4th color model
+
+Tasks started, but not completed, since last meeting:
+  *Color option updates fractal
+  *escape distance integration
+  *Test classes
+
+Tasks to be worked on (and by which team members) for the next meeting:
+  *Test classes (Asif)
+  *Color updates (Mark)
+  *Distance integration (Gao)
+
+Schedule for the next week's set of pair programming meetings:
+  *3/16/17 2-3PM
+  *
