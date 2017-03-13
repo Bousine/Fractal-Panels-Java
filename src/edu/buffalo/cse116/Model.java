@@ -37,7 +37,7 @@ public class Model {
         		 _f.setIndexColorModel(ColorModelFactory.createGrayColorModel(256));
         	 }
         	 if (c==4){
-        		 _f.setIndexColorModel(ColorModelFactory.createRainbowColorModel(256));
+        		 _f.setIndexColorModel(ColorModelFactory.createGreensColorModel(256));
         	 }
         	 
          }

@@ -84,4 +84,17 @@ public class ColorModelFactory {
     IndexColorModel retVal = new IndexColorModel(8, reds.length, reds, greens, blues);
     return retVal;
   }
+  
+  public static IndexColorModel createGreensColorModel(int numColors) {
+	    byte[] reds = new byte[numColors];
+	    byte[] greens = new byte[numColors];
+	    byte[] blues = new byte[numColors];
+	    for (int i = 0; i < reds.length - 1; i++) {
+	      greens[i] = (byte) ((Math.log10(i) / Math.log10(greens.length)) * 256);
+	      blues[i] = 0;
+	      reds[i] = 0;
+	    }
+	    IndexColorModel retVal = new IndexColorModel(8, reds.length, reds, greens, blues);
+	    return retVal;
+	  }
 }

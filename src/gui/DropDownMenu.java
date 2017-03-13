@@ -86,7 +86,7 @@ public class DropDownMenu extends JMenuBar{
 		color2.addActionListener(new ColorListener(_model, 2));
 		JMenuItem color3 = new JMenuItem("Gray");
 		color3.addActionListener(new ColorListener(_model, 3));
-		JMenuItem color4 = new JMenuItem("color 4");
+		JMenuItem color4 = new JMenuItem("Greens");
 		color4.addActionListener(new ColorListener(_model, 4));
 		
 		JMenuItem submit= new JMenuItem("New Escape Distance");
