@@ -11,13 +11,15 @@ public class SetListener implements ActionListener{
 	private Model _model;
 	
 	
-	public SetListener(int s){
+	public SetListener(Model m, int s){
 		_set = s;
 		
+		_model = m;
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		
 		_model.SetFractal(_set);
 		
 	}

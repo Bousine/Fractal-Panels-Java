@@ -12,9 +12,9 @@ public class ColorListener implements ActionListener{
 	private Model _model;
 	
 	
-	public ColorListener(int c){
+	public ColorListener(Model m, int c){
 		_color = c;
-		
+		_model = m;
 	}
 
 	@Override

@@ -72,22 +72,22 @@ public class DropDownMenu extends JMenuBar{
 		exit.addActionListener(new ExitListener());
 		
 		JMenuItem burning = new JMenuItem("Burning ship set");
-		burning.addActionListener(new SetListener(1));
+		burning.addActionListener(new SetListener(_model, 1));
 		JMenuItem julia = new JMenuItem("Julia set");
-		julia.addActionListener(new SetListener(2));
+		julia.addActionListener(new SetListener(_model, 2));
 		JMenuItem mandel = new JMenuItem("Mandelbrot set");
-		mandel.addActionListener(new SetListener(3));
+		mandel.addActionListener(new SetListener(_model, 3));
 		JMenuItem multi = new JMenuItem("Multibrot set");
-		multi.addActionListener(new SetListener(4));
+		multi.addActionListener(new SetListener(_model, 4));
 		
 		JMenuItem color1 = new JMenuItem("Raindow");
-		color1.addActionListener(new ColorListener(1));
+		color1.addActionListener(new ColorListener(_model, 1));
 		JMenuItem color2 = new JMenuItem("Blues");
-		color2.addActionListener(new ColorListener(2));
+		color2.addActionListener(new ColorListener(_model, 2));
 		JMenuItem color3 = new JMenuItem("Gray");
-		color3.addActionListener(new ColorListener(3));
+		color3.addActionListener(new ColorListener(_model, 3));
 		JMenuItem color4 = new JMenuItem("color 4");
-		color4.addActionListener(new ColorListener(4));
+		color4.addActionListener(new ColorListener(_model, 4));
 		
 		JMenuItem submit= new JMenuItem("New Escape Distance");
 		submit.addActionListener(new InputListener(_model));
