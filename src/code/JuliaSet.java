@@ -40,11 +40,10 @@ public class JuliaSet {
 	private double _yCurr;
 	/** Escape Distance */
 	private double _escDist;
-	/**Menu*/
 	
 	
 	/** Constructor to instantiate instance variables */
-	public JuliaSet(){
+	public JuliaSet(double escDist){
 		_row = 512;
 		_col = 512;
 		_fractal = new int[_row][_col];
@@ -54,7 +53,7 @@ public class JuliaSet {
 		_yLow = -1.0;
 		_xConstant = -0.72689;
 		_yConstant = 0.188887;
-		_escDist = 2;
+		_escDist = escDist;
 	}
 	
 	/**
@@ -132,11 +131,5 @@ public class JuliaSet {
 		return result;
 	}	
 	
-	public void setEscapeDistance(double i){
-		_escDist = i;
-	}
 	
-/*	public void addObserver(MenuPanel g){
-		_menu = g;
-	}*/
 }

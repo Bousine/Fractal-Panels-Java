@@ -33,18 +33,18 @@ public class MultibrotSet {
 	private int _noOfCols;
 	/** Escape Distance */
 	private double _escDist;
-	/**Menu*/
+	
 	
 	
 	/** Constructor to instantiate instance variables */
-	public MultibrotSet(){
+	public MultibrotSet(double escDist){
 		_xStart = -1.0;
 		_xEnd = 1.0;
 		_noOfRows = 512;
 		_yStart = -1.3;
 		_yEnd = 1.3;
 		_noOfCols = 512;
-		_escDist = 2;
+		_escDist = escDist;
 	}
 	
 	/**
@@ -122,12 +122,6 @@ public class MultibrotSet {
 		return result;
 	}
 	
-	public void setEscapeDistance(double i){
-		_escDist = i;
-	}
 	
-/*	public void addObserver(MenuPanel g){
-		_menu = g;
-	}*/
 
 }

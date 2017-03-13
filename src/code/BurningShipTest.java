@@ -18,7 +18,7 @@ public class BurningShipTest {
 	
 	@Before
 	public void setup(){
-		obj = new BurningShipSet();		
+		obj = new BurningShipSet(2);		
 	}
 	
 	/**

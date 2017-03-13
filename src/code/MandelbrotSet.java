@@ -18,35 +18,26 @@ public class MandelbrotSet {
 	/** 
 	 * this is the array that contains all 262144 escape time for the pixels.
 	 */
-	int[][] _escapeTime;
+	private int[][] _escapeTime;
 	/** Escape Distance */
 	private double _escDist;
-	/**Menu*/
+	
 	
 	
 	/** 
 	 * Constructor
 	 */
-	public MandelbrotSet(){
-		_escDist = 2;
+	public MandelbrotSet(double escDist){
+		_escDist = escDist;
 		_escapeTime = new int[512][512];
-		/*for(int y = 0; y < 512; y+=1){
-			for(int x = 0; x<512; x+=1){
-				Point2D.Double point = this.getCoordinates(x, y);
-				_escapeTime[x][y] = this.getEscapeTime(point.x, point.y);
-			}
-		}*/		
-	}
-	
-	public int[][] fractalCalc(){
 		for(int y = 0; y < 512; y+=1){
 			for(int x = 0; x<512; x+=1){
 				Point2D.Double point = this.getCoordinates(x, y);
 				_escapeTime[x][y] = this.getEscapeTime(point.x, point.y);
 			}
-		}
-		return _escapeTime;
+		}	
 	}
+	
 	
 	
 	/** 
@@ -109,12 +100,8 @@ public class MandelbrotSet {
 		return _escapeTime;
 	}
 
-	public void setEscapeDistance(double i){
-		_escDist = i;
-	}
 	
-/*	public void addObserver(MenuPanel g){
-		_menu = g;
-	}*/
+	
+
 
 }

@@ -34,18 +34,18 @@ public class BurningShipSet {
 	private int _noOfCols;
 	/** Escape Distance */
 	private double _escDist;
-	/**Menu*/
+	
 	
 	
 	/** Constructor to instantiate instance variables */
-	public BurningShipSet(){
+	public BurningShipSet(double escDist){
 		_xStart = -1.8;
 		_xEnd = -1.7;
 		_noOfRows = 512;
 		_yStart = -0.08;
 		_yEnd = 0.025;
 		_noOfCols = 512;
-		_escDist = 2;
+		_escDist = escDist;
 	}
 	
 	/**
@@ -123,15 +123,7 @@ public class BurningShipSet {
 		return result;
 	}
 	
-	public void setEscapeDistance(double i){
-		_escDist = i;
-	}
 	
-	public double getEscapeDistance(){
-		return _escDist;
-	}
 	
-/*	public void addObserver(MenuPanel g){
-		_menu = g;
-	}*/
+
 }

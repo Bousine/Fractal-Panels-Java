@@ -26,7 +26,7 @@ public class MultibrotTest {
 	 */
 	@Before
 	public void SetUp(){
-		obj = new MultibrotSet();
+		obj = new MultibrotSet(2);
 	}
 	
 	/**

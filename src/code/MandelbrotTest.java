@@ -26,7 +26,7 @@ public class MandelbrotTest {
 	 */
 	@Before
 	public void setup(){
-		object = new MandelbrotSet();
+		object = new MandelbrotSet(2);
 	}
     
 	/**

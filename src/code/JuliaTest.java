@@ -16,7 +16,7 @@ public class JuliaTest {
 	
 	@Before
 	public void setup(){
-		obj = new JuliaSet();		
+		obj = new JuliaSet(2);		
 	}
 	
 	/**
