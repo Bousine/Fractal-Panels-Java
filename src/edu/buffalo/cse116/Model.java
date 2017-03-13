@@ -15,6 +15,7 @@ public class Model {
          private double _inputDistance;
          private Gui window;
          
+         
          public Model(){
         	 window = new Gui(this);
         	 window.add(_f);
@@ -35,7 +36,7 @@ public class Model {
         	 if (c==3){
         		 _f.setIndexColorModel(ColorModelFactory.createGrayColorModel(256));
         	 }
-        	 else{
+        	 if (c==4){
         		 _f.setIndexColorModel(ColorModelFactory.createRainbowColorModel(256));
         	 }
         	 
@@ -54,7 +55,7 @@ public class Model {
         		 MandelbrotSet ms = new MandelbrotSet();
          		_f.updateImage(ms.fractalCalc());
         	 }
-        	 else{
+        	 if (s==4){
         		 MultibrotSet mls = new MultibrotSet();
          		_f.updateImage(mls.fractalCalc());
         	 }
