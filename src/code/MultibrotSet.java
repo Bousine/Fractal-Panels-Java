@@ -122,6 +122,8 @@ public class MultibrotSet {
 		return result;
 	}
 	
-	
+	public double getEscapeDistance(){
+		return _escDist;
+	}
 
 }

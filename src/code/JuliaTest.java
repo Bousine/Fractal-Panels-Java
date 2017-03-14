@@ -86,6 +86,21 @@ public class JuliaTest {
 		assertEquals(512, result[0].length);
 	}
 	
+	@Test
+	public void escapeDistanceChange(){
+		obj = new JuliaSet(3);
+		assertEquals(obj.getEscapeDistance(), 3, 0.0);
+		obj = new JuliaSet(10.55);
+		assertEquals(obj.getEscapeDistance(), 10.55, 0.0);
+	}
+	
+	@Test
+	public void escapeTimeforNewEscDist(){
+		obj = new JuliaSet(3);
+		int result = obj.escapeTime(1.4538160469667272, -0.13502935420743645);
+		assertEquals(result, 10);
+	}
+	
 	
 }
 

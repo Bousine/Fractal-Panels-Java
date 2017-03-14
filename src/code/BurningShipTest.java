@@ -96,4 +96,19 @@ public class BurningShipTest {
 		assertEquals(512, result.length);
 		assertEquals(512, result[0].length);
 	}
+	
+	@Test
+	public void escapeDistanceChange(){
+		obj = new BurningShipSet(3);
+		assertEquals(obj.getEscapeDistance(), 3, 0.0);
+		obj = new BurningShipSet(10.55);
+		assertEquals(obj.getEscapeDistance(), 10.55, 0.0);
+	}
+	
+	@Test
+	public void escapeTimeforNewEscDist(){
+		obj = new BurningShipSet(3);
+		int result = obj.escapeTime(-1.6999999999999802, 0.0030136986301371603);
+		assertEquals(result, 10);
+	}
 }

@@ -131,5 +131,8 @@ public class JuliaSet {
 		return result;
 	}	
 	
+	public double getEscapeDistance(){
+		return _escDist;
+	}
 	
 }

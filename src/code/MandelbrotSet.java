@@ -100,7 +100,9 @@ public class MandelbrotSet {
 		return _escapeTime;
 	}
 
-	
+	public double getEscapeDistance(){
+		return _escDist;
+	}
 	
 
 
