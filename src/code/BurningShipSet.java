@@ -123,6 +123,11 @@ public class BurningShipSet {
 		return result;
 	}
 	
+	
+	/**
+	 * gets current escape distance
+	 * @return current escape distance
+	 */
 	public double getEscapeDistance(){
 		return _escDist;
 	}

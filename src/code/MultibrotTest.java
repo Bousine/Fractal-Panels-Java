@@ -93,6 +93,10 @@ public class MultibrotTest {
 		assertEquals(1, result);
 	}
 	
+	
+	/**
+	 * Tests that the escape distance has changed
+	 */
 	@Test
 	public void escapeDistanceChange(){
 		obj = new MultibrotSet(3);
@@ -101,6 +105,9 @@ public class MultibrotTest {
 		assertEquals(obj.getEscapeDistance(), 10.55, 0.0);
 	}
 	
+	/**
+	 * Tests the escape time for a new escape distance
+	 */
 	@Test
 	public void escapeTimeforNewEscDist(){
 		obj = new MultibrotSet(3);

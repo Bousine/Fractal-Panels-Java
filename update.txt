@@ -1,0 +1,1 @@
+Update escape distance by selecting Distance > New Escape Distance in the drop down menu and entering a new value.

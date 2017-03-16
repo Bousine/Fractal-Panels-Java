@@ -97,6 +97,9 @@ public class BurningShipTest {
 		assertEquals(512, result[0].length);
 	}
 	
+	/**
+	 * Tests that the escape distance has changed
+	 */
 	@Test
 	public void escapeDistanceChange(){
 		obj = new BurningShipSet(3);
@@ -105,6 +108,9 @@ public class BurningShipTest {
 		assertEquals(obj.getEscapeDistance(), 10.55, 0.0);
 	}
 	
+	/**
+	 * Tests the escape time for a new escape distance
+	 */
 	@Test
 	public void escapeTimeforNewEscDist(){
 		obj = new BurningShipSet(3);
