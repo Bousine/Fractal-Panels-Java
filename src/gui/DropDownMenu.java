@@ -11,11 +11,25 @@ import gui.ActionListerners.SetListener;
 import gui.ActionListerners.ExitListener;
 import gui.ActionListerners.InputListener;
 
-
+/**
+ * Class which sets up menu bar
+ * 
+ * @author Mark Kayutkin
+ * @author Asif Hasan
+ * @author Xiangshuai Gao 
+ */
 public class DropDownMenu extends JMenuBar{
+	/** I have no idea what this is, eclipse add it for me
+	 */
 	private static final long serialVersionUID = 1L;
+	/**
+	 *  instance of model
+	 */
 	private Model _model;
-	
+	/** Constructor
+	 * 
+	 * @param model this is reference to model passed by model itself to gui and from gui to dropdownmenu
+	 */
 	public DropDownMenu(Model model){
 		super();
 		_model = model;
@@ -60,7 +74,7 @@ public class DropDownMenu extends JMenuBar{
 	
 	
 	/**
-	 * This makes me so dizzy. I am placing it all the way at the back if you don't mind
+	 * This sets up the entire drop down menu
 	 * 
 	 */
 	public void MasterSetUP(){

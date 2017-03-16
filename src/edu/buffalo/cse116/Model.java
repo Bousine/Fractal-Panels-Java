@@ -8,22 +8,45 @@ import code.JuliaSet;
 import code.MandelbrotSet;
 import code.MultibrotSet;
 
-
+/**
+ * Class which interacts between user input, the gui and the rest of the code. 
+ * 
+ * @author Mark Kayutkin
+ * @author Asif Hasan
+ * @author Xiangshuai Gao
+ */
 
 public class Model {
-	
+	     /**
+	      * this is the fractal panel
+	      */
 		 private FractalPanel _f = new FractalPanel();
+		 /**
+	      * this is the current input distance
+	      */
          private double _inputDistance = 2;
+         /**
+	      * this is the current input fractal choice
+	      */
          private int _inputFractal = -1;
-         private Gui window;
+         /**
+          * this is the gui window
+          */
+         private Gui _window;
          
          
+         /**
+          * constructor
+          */
          public Model(){
-        	 window = new Gui(this);
-        	 window.add(_f);
+        	 _window = new Gui(this);
+        	 _window.add(_f);
          }
          
-         
+         /** this sets _inputDistance to the new distance
+          * 
+          * @param input distance from user
+          */
          public void SetInputDistance(double input){
         	 _inputDistance = input;
         	 if(!(_inputFractal==-1)){
@@ -31,7 +54,10 @@ public class Model {
         	 }
          }
          
-         
+         /** this changes the color setting
+          * 
+          * @param c input color choice from user
+          */
          public void SetColor(int c){
         	 if (c==1){
         		 _f.setIndexColorModel(ColorModelFactory.createRainbowColorModel(256));
@@ -51,6 +77,10 @@ public class Model {
         	 
          }
          
+         /** this updates the fractal to the user's preference
+          * 
+          * @param s input fractal choice from user
+          */
          public void SetFractal(int s){
         	 if (s==1){
         		 BurningShipSet bs = new BurningShipSet(_inputDistance);

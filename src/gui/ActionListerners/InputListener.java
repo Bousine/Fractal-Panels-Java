@@ -10,11 +10,19 @@ import gui.DropDownMenu;
 
 
 public class InputListener implements ActionListener{
+	/**
+	 *  reference to model
+	 */
 	private Model _model;
+	/** constructor
+	 *@param model is passed by dropdownmenu and holds reference to model
+	 */
 	public InputListener(Model model){
 		_model = model;
 	}
-
+    /**
+     * action listener function for inputListener
+     */
 	@Override
 	public void actionPerformed(ActionEvent e) throws NumberFormatException{
 		double inputValue;
