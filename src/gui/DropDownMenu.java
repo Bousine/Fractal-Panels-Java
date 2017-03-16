@@ -37,42 +37,6 @@ public class DropDownMenu extends JMenuBar{
 		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
 	/**
 	 * This sets up the entire drop down menu
 	 * 
