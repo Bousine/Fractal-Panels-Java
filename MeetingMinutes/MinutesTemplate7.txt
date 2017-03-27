@@ -1,0 +1,18 @@
+Meeting Minutes for ___3/27/17____:
+
+Meeting Attendance:
+  *Asif	
+  *Gao
+  *Mark M
+
+Tasks completed since last meeting:
+  *Phase 2
+
+Tasks started, but not completed, since last meeting:
+  *N/A
+
+Tasks to be worked on (and by which team members) for the next meeting:
+  *figuring out how to implement mouse events.
+
+Schedule for the next week's set of pair programming meetings:
+  *4/3/17 (next recitation)
