@@ -22,13 +22,14 @@ public class MandelbrotSet {
 	/** Escape Distance */
 	private double _escDist;
 	
-	
+	private double _escTime;
 	
 	/** 
 	 * Constructor
 	 */
-	public MandelbrotSet(double escDist){
+	public MandelbrotSet(double escDist, double escTime){
 		_escDist = escDist;
+		_escTime = escTime;
 		_escapeTime = new int[512][512];
 		for(int y = 0; y < 512; y+=1){
 			for(int x = 0; x<512; x+=1){
@@ -80,7 +81,7 @@ public class MandelbrotSet {
 		int passes = 0;
 		double xCal = currentx;
 	    double yCal = currenty;
-		while(dist <= _escDist && passes <255){
+		while(dist <= _escDist && passes < _escTime){
 			double tempx = xCal;
 		    double tempy = yCal;
 			xCal = this.newPositionX(tempx, tempy, currentx);

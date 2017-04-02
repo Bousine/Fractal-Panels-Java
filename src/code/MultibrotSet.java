@@ -34,10 +34,11 @@ public class MultibrotSet {
 	/** Escape Distance */
 	private double _escDist;
 	
+	private double _escTime;
 	
 	
 	/** Constructor to instantiate instance variables */
-	public MultibrotSet(double escDist){
+	public MultibrotSet(double escDist, double escTime){
 		_xStart = -1.0;
 		_xEnd = 1.0;
 		_noOfRows = 512;
@@ -45,6 +46,7 @@ public class MultibrotSet {
 		_yEnd = 1.3;
 		_noOfCols = 512;
 		_escDist = escDist;
+		_escTime = escTime;
 	}
 	
 	/**
@@ -88,7 +90,7 @@ public class MultibrotSet {
 		_yCalc = _currentY;
 		double dist = Math.sqrt(_xCalc*_xCalc + _yCalc*_yCalc);		
 		int passes = 0;
-		while(dist <= _escDist && passes < 255){
+		while(dist <= _escDist && passes < _escTime){
 			update();
 			passes++;
 			dist = Math.sqrt(_xCalc*_xCalc + _yCalc*_yCalc);

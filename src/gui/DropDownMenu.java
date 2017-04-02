@@ -6,11 +6,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JTextField;
 
 import edu.buffalo.cse116.Model;
-import gui.ActionListerners.ColorListener;
-import gui.ActionListerners.SetListener;
-import gui.ActionListerners.ExitListener;
-import gui.ActionListerners.InputListener;
-import gui.ActionListerners.ResetListener;
+import gui.ActionListerners.*;
 
 /**
  * Class which sets up menu bar
@@ -38,42 +34,6 @@ public class DropDownMenu extends JMenuBar{
 		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
 	/**
 	 * This sets up the entire drop down menu
 	 * 
@@ -83,6 +43,7 @@ public class DropDownMenu extends JMenuBar{
 		JMenu fractals = new JMenu("Fractals");
 		JMenu colors = new JMenu("Colors");
 		JMenu distance = new JMenu("Distance");
+		JMenu time = new JMenu("Time");
 		JMenu ZoomOption = new JMenu("Zoom Options");
 		
 		JMenuItem exit = new JMenuItem("Exit");
@@ -109,6 +70,9 @@ public class DropDownMenu extends JMenuBar{
 		JMenuItem submit= new JMenuItem("New Escape Distance");
 		submit.addActionListener(new InputListener(_model));
 		
+		JMenuItem timeSet= new JMenuItem("New Escape Time");
+		timeSet.addActionListener(new TimeListener(_model));
+		
 		JMenuItem reset = new JMenuItem("Reset");
 		reset.addActionListener(new ResetListener(_model));
 		
@@ -123,12 +87,14 @@ public class DropDownMenu extends JMenuBar{
 		colors.add(color3);
 		colors.add(color4);
 		distance.add(submit);
+		time.add(timeSet);
 		ZoomOption.add(reset);
 		
 		this.add(file);
 		this.add(fractals);
 		this.add(colors);
 		this.add(distance);
+		this.add(time);
 		this.add(ZoomOption);
 		
 	}

@@ -35,10 +35,12 @@ public class BurningShipSet {
 	/** Escape Distance */
 	private double _escDist;
 	
+	private double _escTime;
+	
 	
 	
 	/** Constructor to instantiate instance variables */
-	public BurningShipSet(double escDist){
+	public BurningShipSet(double escDist, double escTime){
 		_xStart = -1.8;
 		_xEnd = -1.7;
 		_noOfRows = 512;
@@ -46,6 +48,7 @@ public class BurningShipSet {
 		_yEnd = 0.025;
 		_noOfCols = 512;
 		_escDist = escDist;
+		_escTime = escTime;
 	}
 	
 	/**
@@ -89,7 +92,7 @@ public class BurningShipSet {
 		_yCalc = _currentY;
 		double dist = Math.sqrt(_xCalc*_xCalc + _yCalc*_yCalc);		
 		int passes = 0;
-		while(dist <= _escDist && passes < 255){
+		while(dist <= _escDist && passes < _escTime){
 			update();
 			passes++;
 			dist = Math.sqrt(_xCalc*_xCalc + _yCalc*_yCalc);

@@ -26,7 +26,7 @@ public class MultibrotTest {
 	 */
 	@Before
 	public void SetUp(){
-		obj = new MultibrotSet(2);
+		obj = new MultibrotSet(2, 255);
 	}
 	
 	/**
@@ -95,15 +95,15 @@ public class MultibrotTest {
 	
 	@Test
 	public void escapeDistanceChange(){
-		obj = new MultibrotSet(3);
+		obj = new MultibrotSet(3, 255);
 		assertEquals(obj.getEscapeDistance(), 3, 0.0);
-		obj = new MultibrotSet(10.55);
+		obj = new MultibrotSet(10.55, 255);
 		assertEquals(obj.getEscapeDistance(), 10.55, 0.0);
 	}
 	
 	@Test
 	public void escapeTimeforNewEscDist(){
-		obj = new MultibrotSet(3);
+		obj = new MultibrotSet(3, 255);
 		int result = obj.escapeTime(0.7025440313111545, -0.5520547945205528);
 		assertEquals(result, 10);
 	}

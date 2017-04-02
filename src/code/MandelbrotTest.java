@@ -26,7 +26,7 @@ public class MandelbrotTest {
 	 */
 	@Before
 	public void setup(){
-		object = new MandelbrotSet(2);
+		object = new MandelbrotSet(2, 255);
 	}
     
 	/**
@@ -97,15 +97,15 @@ public class MandelbrotTest {
 	
 	@Test
 	public void escapeDistanceChange(){
-		object = new MandelbrotSet(3);
+		object = new MandelbrotSet(3, 255);
 		assertEquals(object.getEscapeDistance(), 3, 0.0);
-		object = new MandelbrotSet(10.55);
+		object = new MandelbrotSet(10.55, 255);
 		assertEquals(object.getEscapeDistance(), 10.55, 0.0);
 	}
 	
 	@Test
 	public void escapeTimeforNewEscDist(){
-		object = new MandelbrotSet(3);
+		object = new MandelbrotSet(3, 255);
 		int result = object.getEscapeTime(0.46007827788650374, -0.3383561643835661);
 		assertEquals(result, 10);
 	}

@@ -16,7 +16,7 @@ public class JuliaTest {
 	
 	@Before
 	public void setup(){
-		obj = new JuliaSet(2);		
+		obj = new JuliaSet(2, 255);		
 	}
 	
 	/**
@@ -88,15 +88,15 @@ public class JuliaTest {
 	
 	@Test
 	public void escapeDistanceChange(){
-		obj = new JuliaSet(3);
+		obj = new JuliaSet(3, 255);
 		assertEquals(obj.getEscapeDistance(), 3, 0.0);
-		obj = new JuliaSet(10.55);
+		obj = new JuliaSet(10.55, 255);
 		assertEquals(obj.getEscapeDistance(), 10.55, 0.0);
 	}
 	
 	@Test
 	public void escapeTimeforNewEscDist(){
-		obj = new JuliaSet(3);
+		obj = new JuliaSet(3, 255);
 		int result = obj.escapeTime(1.4538160469667272, -0.13502935420743645);
 		assertEquals(result, 10);
 	}

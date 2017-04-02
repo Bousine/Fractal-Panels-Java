@@ -20,15 +20,16 @@ public class Model {
 	     /**
 	      * this is the fractal panel
 	      */
-		 private FractalPanel _f = new FractalPanel();
+		 private FractalPanel _f;
 		 /**
 	      * this is the current input distance
 	      */
-         private double _inputDistance = 2;
+         private double _inputDistance;
          /**
 	      * this is the current input fractal choice
 	      */
-         private int _inputFractal = -1;
+         private double _inputTime;
+         private int _inputFractal;
          /**
           * this is the gui window
           */
@@ -39,6 +40,10 @@ public class Model {
           * constructor
           */
          public Model(){
+        	 _f = new FractalPanel();
+        	 _inputDistance = 2;
+        	 _inputTime = 255;
+        	 _inputFractal = -1;
         	 _window = new Gui(this);
         	 _window.add(_f);
          }
@@ -49,6 +54,10 @@ public class Model {
           */
          public void SetInputDistance(double input){
         	 _inputDistance = input;
+        	 this.updateFactal();
+         }
+         public void SetInputTime(double input){
+        	 _inputTime = input;
         	 this.updateFactal();
          }
          
@@ -80,24 +89,23 @@ public class Model {
          }
          
          /** this updates the fractal to the user's preference
-          * 
           * @param s input fractal choice from user
           */
          public void SetFractal(int s){
         	 if (s==1){
-        		 BurningShipSet bs = new BurningShipSet(_inputDistance);
+        		 BurningShipSet bs = new BurningShipSet(_inputDistance, _inputTime);
         		_f.updateImage(bs.fractalCalc());
         	 }
         	 if (s==2){
-        		 JuliaSet js = new JuliaSet(_inputDistance);
+        		 JuliaSet js = new JuliaSet(_inputDistance, _inputTime);
          		_f.updateImage(js.fractalCalc());
         	 }
         	 if (s==3){
-        		 MandelbrotSet ms = new MandelbrotSet(_inputDistance);
+        		 MandelbrotSet ms = new MandelbrotSet(_inputDistance, _inputTime);
          		_f.updateImage(ms.returnResult());
         	 }
         	 if (s==4){
-        		 MultibrotSet mls = new MultibrotSet(_inputDistance);
+        		 MultibrotSet mls = new MultibrotSet(_inputDistance, _inputTime);
          		_f.updateImage(mls.fractalCalc());
         	 }
         	 _inputFractal = s;

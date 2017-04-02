@@ -41,9 +41,11 @@ public class JuliaSet {
 	/** Escape Distance */
 	private double _escDist;
 	
+	private double _escTime;
+	
 	
 	/** Constructor to instantiate instance variables */
-	public JuliaSet(double escDist){
+	public JuliaSet(double escDist, double escTime){
 		_row = 512;
 		_col = 512;
 		_fractal = new int[_row][_col];
@@ -54,6 +56,7 @@ public class JuliaSet {
 		_xConstant = -0.72689;
 		_yConstant = 0.188887;
 		_escDist = escDist;
+		_escTime = escTime;
 	}
 	
 	/**
@@ -97,7 +100,7 @@ public class JuliaSet {
 		_yCalc = _yCurr;
 		double dist = Math.sqrt(_xCalc*_xCalc + _yCalc*_yCalc);		
 		int passes = 0;
-		while(dist <= _escDist && passes < 255){
+		while(dist <= _escDist && passes < _escTime){
 			update();
 			passes++;
 			dist = Math.sqrt(_xCalc*_xCalc + _yCalc*_yCalc);

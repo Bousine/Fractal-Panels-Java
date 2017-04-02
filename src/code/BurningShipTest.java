@@ -18,7 +18,7 @@ public class BurningShipTest {
 	
 	@Before
 	public void setup(){
-		obj = new BurningShipSet(2);		
+		obj = new BurningShipSet(2, 255);		
 	}
 	
 	/**
@@ -99,15 +99,15 @@ public class BurningShipTest {
 	
 	@Test
 	public void escapeDistanceChange(){
-		obj = new BurningShipSet(3);
+		obj = new BurningShipSet(3, 255);
 		assertEquals(obj.getEscapeDistance(), 3, 0.0);
-		obj = new BurningShipSet(10.55);
+		obj = new BurningShipSet(10.55, 255);
 		assertEquals(obj.getEscapeDistance(), 10.55, 0.0);
 	}
 	
 	@Test
 	public void escapeTimeforNewEscDist(){
-		obj = new BurningShipSet(3);
+		obj = new BurningShipSet(3, 255);
 		int result = obj.escapeTime(-1.6999999999999802, 0.0030136986301371603);
 		assertEquals(result, 10);
 	}

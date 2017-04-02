@@ -9,7 +9,7 @@ import edu.buffalo.cse116.Model;
 import gui.DropDownMenu;
 
 
-public class InputListener implements ActionListener{
+public class TimeListener implements ActionListener{
 	/**
 	 *  reference to model
 	 */
@@ -17,7 +17,7 @@ public class InputListener implements ActionListener{
 	/** constructor
 	 *@param model is passed by dropdownmenu and holds reference to model
 	 */
-	public InputListener(Model model){
+	public TimeListener(Model model){
 		_model = model;
 	}
     /**
@@ -26,15 +26,15 @@ public class InputListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) throws NumberFormatException{
 		double inputValue;
-		String input = JOptionPane.showInputDialog("Enter a number greater than 0");
+		String input = JOptionPane.showInputDialog("Enter a number between 1 and 255");
 		
 		do{
 		try{
 			inputValue = Double.parseDouble(input);
-			if(!(inputValue > 0)){
+			if((inputValue < 1 || inputValue > 255)){
 				throw new NumberFormatException();
 			}
-			_model.SetInputDistance(inputValue);
+			_model.SetInputTime(inputValue);
 			break;
 		}
 		catch(NumberFormatException d){
