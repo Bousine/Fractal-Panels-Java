@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import edu.buffalo.cse116.Model;
 
+
 /**
  * Class which sets up gui
  * 

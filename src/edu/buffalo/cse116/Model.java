@@ -7,6 +7,10 @@ import code.BurningShipSet;
 import code.JuliaSet;
 import code.MandelbrotSet;
 import code.MultibrotSet;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import gui.ActionListerners.*;
 
 /**
  * Class which interacts between user input, the gui and the rest of the code. 
@@ -46,6 +50,9 @@ public class Model {
         	 _inputFractal = -1;
         	 _window = new Gui(this);
         	 _window.add(_f);
+        	 MouseHandler mouse = new MouseHandler();
+        	 _f.addMouseListener(mouse);
+        	 _f.addMouseMotionListener(mouse);
          }
          
          /** this sets _inputDistance to the new distance
