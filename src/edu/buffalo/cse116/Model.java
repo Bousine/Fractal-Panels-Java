@@ -10,6 +10,8 @@ import code.MultibrotSet;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.border.Border;
+
 import gui.ActionListerners.*;
 
 /**
@@ -117,4 +119,14 @@ public class Model {
         	 }
         	 _inputFractal = s;
          }
+         
+         public void selectionMaker(int xx, int yy){
+        	 JLabel selection = new JLabel();
+        	 selection.setVisible(true);
+        	 selection.setBorder(BorderFactory.createLineBorder(Color.yellow));
+        	 _f.add(selection, xx, yy);
+        	 
+         }
 }
+
+

@@ -2,12 +2,13 @@ package gui.ActionListerners;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import edu.buffalo.cse116.Model;
 
 public class MouseHandler implements MouseListener, MouseMotionListener{
-
+	private JPanel zoom = new JPanel();
+	private Model model = new Model();
 	@Override
 	public void mouseDragged(MouseEvent me) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -37,7 +38,10 @@ public class MouseHandler implements MouseListener, MouseMotionListener{
 
 	@Override
 	public void mousePressed(MouseEvent me) {
-		// TODO Auto-generated method stub
+		int xx = me.getX();
+		int yy = me.getY();
+		model.selectionMaker(xx, yy);
+		
 		
 	}
 
