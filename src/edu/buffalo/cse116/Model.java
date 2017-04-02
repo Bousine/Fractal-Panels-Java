@@ -49,8 +49,12 @@ public class Model {
           */
          public void SetInputDistance(double input){
         	 _inputDistance = input;
+        	 this.updateFactal();
+         }
+         
+         public void updateFactal(){
         	 if(!(_inputFractal==-1)){
-        		 this.SetFractal(_inputFractal);
+        	 this.SetFractal(_inputFractal);
         	 }
          }
          
@@ -71,9 +75,7 @@ public class Model {
         	 if (c==4){
         		 _f.setIndexColorModel(ColorModelFactory.createGreensColorModel(256));
         	 }
-        	 if(!(_inputFractal==-1)){
-        		 this.SetFractal(_inputFractal);
-        	 }
+        	 this.updateFactal();
         	 
          }
          

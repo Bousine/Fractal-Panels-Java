@@ -26,12 +26,12 @@ public class InputListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) throws NumberFormatException{
 		double inputValue;
-		String input = JOptionPane.showInputDialog("Enter a number greater than 0");
+		String input = JOptionPane.showInputDialog("Enter a number between 1 and 255");
 		
 		do{
 		try{
 			inputValue = Double.parseDouble(input);
-			if(!(inputValue>0)){
+			if((inputValue<1)&&(inputValue > 255)){
 				throw new NumberFormatException();
 			}
 			_model.SetInputDistance(inputValue);
