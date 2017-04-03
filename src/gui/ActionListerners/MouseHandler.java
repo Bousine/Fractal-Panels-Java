@@ -6,10 +6,17 @@ import edu.buffalo.cse116.Model;
 
 public class MouseHandler implements MouseListener, MouseMotionListener{
 	private JPanel zoom = new JPanel();
-	private Model model = new Model();
+	private Model _model;
+	public MouseHandler(Model model){
+		_model = model;
+	}
 	@Override
 	public void mouseDragged(MouseEvent me) {
+		int xx = me.getX();
+		int yy = me.getY();
+		_model.selectionMaker(xx, yy);
 		
+		_model.selectionSizer(xx, yy);
 	}
 
 	@Override
@@ -20,7 +27,6 @@ public class MouseHandler implements MouseListener, MouseMotionListener{
 
 	@Override
 	public void mouseClicked(MouseEvent me) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -38,9 +44,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener{
 
 	@Override
 	public void mousePressed(MouseEvent me) {
-		int xx = me.getX();
-		int yy = me.getY();
-		model.selectionMaker(xx, yy);
+		
 		
 		
 	}

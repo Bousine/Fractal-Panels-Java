@@ -35,6 +35,7 @@ public class Model {
 	      * this is the current input fractal choice
 	      */
          private double _inputTime;
+         private JLabel _selection;
          private int _inputFractal;
          /**
           * this is the gui window
@@ -52,7 +53,7 @@ public class Model {
         	 _inputFractal = -1;
         	 _window = new Gui(this);
         	 _window.add(_f);
-        	 MouseHandler mouse = new MouseHandler();
+        	 MouseHandler mouse = new MouseHandler(this);
         	 _f.addMouseListener(mouse);
         	 _f.addMouseMotionListener(mouse);
          }
@@ -121,10 +122,19 @@ public class Model {
          }
          
          public void selectionMaker(int xx, int yy){
-        	 JLabel selection = new JLabel();
-        	 selection.setVisible(true);
-        	 selection.setBorder(BorderFactory.createLineBorder(Color.yellow));
-        	 _f.add(selection, xx, yy);
+        	 _selection = new JLabel();
+        	 _selection.setBorder(BorderFactory.createLineBorder(Color.yellow));
+        	 _selection.setVisible(true);
+        	 _selection.setSize(xx,yy);
+        	 _f.add(_selection);
+        	 
+         }
+         
+         public void selectionSizer(int xx, int yy){
+        	 _selection = new JLabel();
+        	 _selection.setVisible(true);
+        	 _selection.setBorder(BorderFactory.createLineBorder(Color.yellow));
+        	 _f.add(_selection);
         	 
          }
 }
