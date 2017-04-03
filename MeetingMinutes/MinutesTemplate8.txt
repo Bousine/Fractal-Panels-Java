@@ -1,0 +1,19 @@
+Meeting Minutes for ___4/3/17____:
+
+Meeting Attendance:
+  *Asif	
+  *Gao
+  *Mark M
+
+Tasks completed since last meeting:
+  *Added escapetime option
+  *mousehandler class
+
+Tasks started, but not completed, since last meeting:
+  *mouse selection box
+
+Tasks to be worked on (and by which team members) for the next meeting:
+  *mouse selection box
+
+Schedule for the next week's set of pair programming meetings:
+  *4/10/17(next recitation)

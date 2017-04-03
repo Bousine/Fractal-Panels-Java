@@ -123,9 +123,9 @@ public class Model {
          
          public void selectionMaker(int xx, int yy){
         	 _selection = new JLabel();
-        	 _selection.setBorder(BorderFactory.createLineBorder(Color.yellow));
+        	 _selection.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
         	 _selection.setVisible(true);
-        	 _selection.setSize(xx,yy);
+        	 _selection.setBounds(xx, yy, 10, 10);
         	 _f.add(_selection);
         	 
          }
@@ -133,7 +133,7 @@ public class Model {
          public void selectionSizer(int xx, int yy){
         	 _selection = new JLabel();
         	 _selection.setVisible(true);
-        	 _selection.setBorder(BorderFactory.createLineBorder(Color.yellow));
+        	 _selection.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
         	 _f.add(_selection);
         	 
          }

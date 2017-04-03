@@ -14,9 +14,8 @@ public class MouseHandler implements MouseListener, MouseMotionListener{
 	public void mouseDragged(MouseEvent me) {
 		int xx = me.getX();
 		int yy = me.getY();
-		_model.selectionMaker(xx, yy);
 		
-		_model.selectionSizer(xx, yy);
+		//_model.selectionSizer(xx, yy);
 	}
 
 	@Override
@@ -44,6 +43,9 @@ public class MouseHandler implements MouseListener, MouseMotionListener{
 
 	@Override
 	public void mousePressed(MouseEvent me) {
+		int xx = me.getX();
+		int yy = me.getY();
+		_model.selectionMaker(xx, yy);
 		
 		
 		
