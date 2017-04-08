@@ -42,6 +42,10 @@ public class Model {
           */
          private Gui _window;
          
+         private int leftEdge;
+         private int rightEdge;
+         private int topEdge;
+         private int bottomEdge;
          
          /**
           * constructor
@@ -119,6 +123,30 @@ public class Model {
          		_f.updateImage(mls.fractalCalc());
         	 }
         	 _inputFractal = s;
+         }
+         
+         public void zoomSelection(int topEdge, int bottomEdge, int leftEdge, int rightEdge){
+        	 if(_inputFractal == 1){
+        		 BurningShipSet bs = new BurningShipSet(_inputDistance, _inputTime);
+        		 bs.zoomInitialize(leftEdge, rightEdge, topEdge, bottomEdge);
+        		 _f.updateImage(bs.fractalCalc());
+        	 }
+        	 if(_inputFractal == 2){
+        		 JuliaSet js = new JuliaSet(_inputDistance, _inputTime);
+        		 js.zoomInitialize(leftEdge, rightEdge, topEdge, bottomEdge);
+        		 _f.updateImage(js.fractalCalc());
+        	 }
+        	 
+        	 if(_inputFractal == 3){
+        		 MandelbrotSet ms = new MandelbrotSet(_inputDistance, _inputTime);
+        		 ms.zoomInitialize(leftEdge, rightEdge, topEdge, bottomEdge);
+        		 _f.updateImage(ms.fractalCalc());
+        	 }
+        	 if(_inputFractal == 4){
+        		 MultibrotSet mls = new MultibrotSet(_inputDistance, _inputTime);
+        		 mls.zoomInitialize(leftEdge, rightEdge, topEdge, bottomEdge);
+        		 _f.updateImage(mls.fractalCalc());
+        	 }
          }
          
          public void selectionMaker(int xx, int yy){

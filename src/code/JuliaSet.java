@@ -23,13 +23,13 @@ public class JuliaSet {
 	/** 2-d array which contains the respective escape-time of the points */
 	int[][] _fractal;
 	/** Maximum x-coordinate */
-	private double _xHigh;
+	private double _xEnd;
 	/** Minimum x-coordinate */
-	private double _xLow;
+	private double _xStart;
 	/** Maximum y-coordinate */
-	private double _yHigh;
+	private double _yEnd;
 	/** Minimum y-coordinate */
-	private double _yLow;
+	private double _yStart;
 	/** Constant added to x-coordinate */
 	private double _xConstant;
 	/** Constant added to y-coordinate */
@@ -43,20 +43,25 @@ public class JuliaSet {
 	
 	private double _escTime;
 	
+	private int _noOfRows;
+	
+	private int _noOfCols;
 	
 	/** Constructor to instantiate instance variables */
 	public JuliaSet(double escDist, double escTime){
 		_row = 512;
 		_col = 512;
 		_fractal = new int[_row][_col];
-		_xHigh = 1.7;
-		_xLow = -1.7;
-		_yHigh = 1.0;
-		_yLow = -1.0;
+		_xEnd = 1.7;
+		_xStart = -1.7;
+		_yEnd = 1.0;
+		_yStart = -1.0;
 		_xConstant = -0.72689;
 		_yConstant = 0.188887;
 		_escDist = escDist;
 		_escTime = escTime;
+		_noOfRows = 512;
+		_noOfCols = 512;
 	}
 	
 	/**
@@ -68,8 +73,8 @@ public class JuliaSet {
 		int[][] grid = new int[_row][_col];
 		for(int row = 0; row < _row; row++){
 			for(int col = 0; col < _col; col++){
-				double resultX = arrayToCoordinate(row, _xLow, _xHigh, _row);
-				double resultY = arrayToCoordinate(col, _yLow, _yHigh, _col);
+				double resultX = arrayToCoordinate(row, _xStart, _xEnd, _row);
+				double resultY = arrayToCoordinate(col, _yStart, _yEnd, _col);
 				int escTime = escapeTime(resultX, resultY);
 				grid[row][col] = escTime;
 			}
@@ -137,5 +142,17 @@ public class JuliaSet {
 	public double getEscapeDistance(){
 		return _escDist;
 	}
+	
+	public void zoomInitialize(int rowStart, int rowEnd, int colStart, int colEnd){
+		_xStart = arrayToCoordinate(rowStart, -1.7, 1.7, _noOfRows); 
+		//System.out.println(_xStart);
+		_xEnd = arrayToCoordinate(rowEnd, -1.7, 1.7, _noOfRows);
+		//System.out.println(_xEnd);
+		_yStart = arrayToCoordinate(colStart, -1.0, 1.0, _noOfCols);
+		//System.out.println(_yStart);
+		_yEnd = arrayToCoordinate(colEnd, -1.0, 1.0, _noOfCols);
+		//System.out.println(_yEnd);
+	}
+	
 	
 }

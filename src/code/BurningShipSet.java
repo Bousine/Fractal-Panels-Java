@@ -130,6 +130,15 @@ public class BurningShipSet {
 		return _escDist;
 	}
 	
-	
+	public void zoomInitialize(int rowStart, int rowEnd, int colStart, int colEnd){
+		_xStart = arrayToCoordinate(rowStart, -1.8, -1.7, _noOfRows); 
+		//System.out.println(_xStart);
+		_xEnd = arrayToCoordinate(rowEnd, -1.8, -1.7, _noOfRows);
+		//System.out.println(_xEnd);
+		_yStart = arrayToCoordinate(colStart, -0.08, 0.025, _noOfCols);
+		//System.out.println(_yStart);
+		_yEnd = arrayToCoordinate(colEnd, -0.08, 0.025, _noOfCols);
+		//System.out.println(_yEnd);
+	}
 
 }

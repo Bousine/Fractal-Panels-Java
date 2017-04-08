@@ -24,10 +24,24 @@ public class MandelbrotSet {
 	
 	private double _escTime;
 	
+	/** Minimum x-coordinate */
+	private double _xStart;
+	/** Maximum x-coordinate */
+	private double _xEnd;
+	/** Number of rows */
+	private int _noOfRows;
+	/** Minimum y-coordinate */
+	private double _yStart;
+	/** Maximum y-coordinate */
+	private double _yEnd;
+	/** Number of columns */
+	private int _noOfCols;
 	/** 
 	 * Constructor
 	 */
 	public MandelbrotSet(double escDist, double escTime){
+		_noOfRows = 512;
+		_noOfCols = 512;
 		_escDist = escDist;
 		_escTime = escTime;
 		_escapeTime = new int[512][512];
@@ -38,7 +52,18 @@ public class MandelbrotSet {
 			}
 		}	
 	}
-	
+	public int[][] fractalCalc(){
+		int[][] grid = new int[_noOfRows][_noOfCols];
+		for(int row = 0; row < _noOfRows; row++){
+			for(int col = 0; col < _noOfCols; col++){
+				double resultX = arrayToCoordinate(row, _xStart, _xEnd, _noOfRows);
+				double resultY = arrayToCoordinate(col, _yStart, _yEnd, _noOfCols);
+				int escTime = getEscapeTime(resultX, resultY);
+				grid[row][col] = escTime;
+			}
+		}
+		return grid;
+	}
 	
 	
 	/** 
@@ -105,6 +130,40 @@ public class MandelbrotSet {
 		return _escDist;
 	}
 	
+	public void zoomInitialize(int rowStart, int rowEnd, int colStart, int colEnd){
+		_xStart = arrayToCoordinate(rowStart, -2.15, 0.6, _noOfRows); 
+		//System.out.println(_xStart);
+		_xEnd = arrayToCoordinate(rowEnd, -2.15, 0.6, _noOfRows);
+		//System.out.println(_xEnd);
+		_yStart = arrayToCoordinate(colStart, -1.3, 1.3, _noOfCols);
+		//System.out.println(_yStart);
+		_yEnd = arrayToCoordinate(colEnd, -1.3, 1.3, _noOfCols);
+		//System.out.println(_yEnd);
+	}
 
+	/**
+	 * Calculates increment of coordinates for each increment of row or column in 2-d array
+	 * @param start- minimum coordinate
+	 * @param end - maximum coordinate
+	 * @param div - number of row or column in 2-d array
+	 * @return increment of coordinates
+	 */
+	public double rangeInc(double start, double end, int div){
+		double inc = (end - start) / div;
+		return inc;
+	}
+	
+	/**
+	 * Translates array to coordinates
+	 * @param i- row or column number in 2-d array
+	 * @param start- minimum coordinate
+	 * @param end - maximum coordinate
+	 * @param div - number of row or column in 2-d array
+	 * @return The corresponding x or y coordinate
+	 */
+	public double arrayToCoordinate(int i, double start, double end, int div){
+		double result = start + i * rangeInc(start, end, div);
+		return result;
+	}
 
 }

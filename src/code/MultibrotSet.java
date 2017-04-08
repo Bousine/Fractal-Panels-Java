@@ -128,4 +128,14 @@ public class MultibrotSet {
 		return _escDist;
 	}
 
+	public void zoomInitialize(int rowStart, int rowEnd, int colStart, int colEnd){
+		_xStart = arrayToCoordinate(rowStart, -1.0, 1.0, _noOfRows); 
+		//System.out.println(_xStart);
+		_xEnd = arrayToCoordinate(rowEnd, -1.0, 1.0, _noOfRows);
+		//System.out.println(_xEnd);
+		_yStart = arrayToCoordinate(colStart, -1.3, 1.3, _noOfCols);
+		//System.out.println(_yStart);
+		_yEnd = arrayToCoordinate(colEnd, -1.3, 1.3, _noOfCols);
+		//System.out.println(_yEnd);
+	}
 }
