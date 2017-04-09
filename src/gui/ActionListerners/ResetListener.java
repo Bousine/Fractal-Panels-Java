@@ -17,6 +17,7 @@ public class ResetListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		_model.updateFactal();
+		_model.updateFeedback("Selected Zoomed coordinates will appear here");
 		
 	}
 
