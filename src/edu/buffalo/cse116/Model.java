@@ -41,6 +41,7 @@ public class Model {
           * this is the gui window
           */
          private Gui _window;
+         private JLabel _VisualFeedBack;
          
          private int leftEdge;
          private int rightEdge;
@@ -60,6 +61,7 @@ public class Model {
         	 MouseHandler mouse = new MouseHandler(this);
         	 _f.addMouseListener(mouse);
         	 _f.addMouseMotionListener(mouse);
+        	 
          }
          
          /** this sets _inputDistance to the new distance
@@ -150,7 +152,6 @@ public class Model {
          }
          
          public void selectionMaker(int xx, int yy){
-        	 _selection = new JLabel();
         	 _selection.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
         	 _selection.setVisible(true);
         	 _selection.setBounds(xx, yy, 10, 10);
@@ -159,12 +160,17 @@ public class Model {
          }
          
          public void selectionSizer(int xx, int yy){
-        	 _selection = new JLabel();
         	 _selection.setVisible(true);
         	 _selection.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
         	 _f.add(_selection);
         	 
          }
+         
+         public void updateFeedback(String string){
+        	 if(!(_inputFractal==-1)){
+        		 _window.updateFeedback(string);
+            	 }
+     	}
 }
 
 

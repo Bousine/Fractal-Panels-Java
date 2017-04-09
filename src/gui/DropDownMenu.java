@@ -1,8 +1,14 @@
 package gui;
 
+import java.awt.Color;
+import java.awt.Font;
+
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import edu.buffalo.cse116.Model;
@@ -27,6 +33,10 @@ public class DropDownMenu extends JMenuBar{
 	 * 
 	 * @param model this is reference to model passed by model itself to gui and from gui to dropdownmenu
 	 */
+	
+	private JTextField _VisualFeedBack;
+	
+	
 	public DropDownMenu(Model model){
 		super();
 		_model = model;
@@ -45,6 +55,13 @@ public class DropDownMenu extends JMenuBar{
 		JMenu distance = new JMenu("Distance");
 		JMenu time = new JMenu("Time");
 		JMenu ZoomOption = new JMenu("Zoom Options");
+		
+		_VisualFeedBack = new JTextField("Selected Zoomed coordinates will appear here");
+		_VisualFeedBack.setEditable(false);
+		Font font = _VisualFeedBack.getFont();  
+		_VisualFeedBack.setFont(font.deriveFont(Font.BOLD));
+		_VisualFeedBack.setBorder(BorderFactory.createLineBorder(Color.blue));
+		
 		
 		JMenuItem exit = new JMenuItem("Exit");
 		exit.addActionListener(new ExitListener());
@@ -76,6 +93,8 @@ public class DropDownMenu extends JMenuBar{
 		JMenuItem reset = new JMenuItem("Reset");
 		reset.addActionListener(new ResetListener(_model));
 		
+		 
+		
 		
 		file.add(exit);
 		fractals.add(burning);
@@ -96,7 +115,13 @@ public class DropDownMenu extends JMenuBar{
 		this.add(distance);
 		this.add(time);
 		this.add(ZoomOption);
-		
+		this.add(new JPanel());
+		this.add(_VisualFeedBack);		
+	}
+	
+	
+	public void updateFeedback(String string){
+		_VisualFeedBack.setText(string);
 	}
 	
 	

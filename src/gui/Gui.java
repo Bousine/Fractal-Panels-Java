@@ -22,6 +22,8 @@ public class Gui extends JFrame {
 	 */
     private Model _model;
     
+    private DropDownMenu _menubar;
+    
 	/** Constructor
 	 * 
 	 * @param model reference to model
@@ -29,11 +31,17 @@ public class Gui extends JFrame {
 	public  Gui(Model model) {
 		super("Fractal Builder");
 		_model = model;
-		this.setSize(600, 600);
-	    this.add(new DropDownMenu(_model), BorderLayout.NORTH);
+		_menubar = new DropDownMenu(_model);
+		this.setSize(800,800);
+	    this.add(_menubar, BorderLayout.NORTH);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+	}
+	
+	
+	public void updateFeedback(String string){
+		_menubar.updateFeedback(string);
 	}
 	
 	

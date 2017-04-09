@@ -31,6 +31,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener{
 		int width = Math.abs(_clicked.x - _dragged.x);
 		int height = Math.abs(_clicked.y - _dragged.y);
 		_zoom = new Rectangle(xTopLeft, yTopLeft, width, height);
+		_model.updateFeedback("Zooming "+ _zoom);
 		
 		/*int xx = me.getX();
 		int yy = me.getY();
@@ -50,7 +51,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener{
 		int adjustedX = (int) (_clicked.x/r.getWidth() * 512);
 		
 		_clicked = new Point(adjustedX, adjustedY);
-		
+		_model.updateFeedback("Point ("+ _clicked.getX() + "," + _clicked.getX() + ") selected");
 		
 		/*int xx = me.getX();
 		int yy = me.getY();
@@ -66,6 +67,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener{
 		    int topEdge = _zoom.y;
 		    int bottomEdge = _zoom.y + _zoom.height;
 		    _model.zoomSelection(topEdge, bottomEdge, leftEdge, rightEdge);
+		    _model.updateFeedback("Zooming "+ _zoom);
 		    
 			/*[For Testing Purposes]
 			System.out.println("Left Edge: " + _zoom.x);
