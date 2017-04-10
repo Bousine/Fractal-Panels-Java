@@ -67,7 +67,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener{
 		    int topEdge = _zoom.y;
 		    int bottomEdge = _zoom.y + _zoom.height;
 		    _model.zoomSelection(topEdge, bottomEdge, leftEdge, rightEdge);
-		    _model.updateFeedback("Zooming "+ _zoom);
+		    _model.updateFeedback("Zoomed  "+ _zoom);
 		    
 			/*[For Testing Purposes]
 			System.out.println("Left Edge: " + _zoom.x);
