@@ -1,0 +1,21 @@
+Meeting Minutes for ___4/10/17____:
+
+Meeting Attendance:
+  *Asif	
+  *Gao
+  *Mark M
+
+Tasks completed since last meeting:
+  *Zooming functionality
+  *Zoom box visual feedback
+  
+
+Tasks started, but not completed, since last meeting:
+  *N/A
+
+Tasks to be worked on (and by which team members) for the next meeting:
+  *JUnit tests
+  *Javadoc
+
+Schedule for the next week's set of pair programming meetings:
+  *4/13/17
