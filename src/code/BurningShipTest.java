@@ -73,7 +73,7 @@ public class BurningShipTest {
 	 * Test that none of the pixels in the Burning Ship set have an escape time of 0 or 1
 	 */
 	@Test
-	public void fractalCalcTest(){
+	public void noZeroOrOneTest(){
 		
 		int[][] result = obj.fractalCalc();
 		for(int i = 0; i < result.length; i++){
@@ -110,5 +110,12 @@ public class BurningShipTest {
 		obj = new BurningShipSet(3, 255);
 		int result = obj.escapeTime(-1.6999999999999802, 0.0030136986301371603);
 		assertEquals(result, 10);
+	}
+	
+	@Test
+	public void escapeTimeforNewEscDistAndTime(){
+		obj = new BurningShipSet(2, 135);
+		int result = obj.escapeTime(-1.7443359374999874, -0.017451171875000338);
+		assertEquals(result, 135);
 	}
 }

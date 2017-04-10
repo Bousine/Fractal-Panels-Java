@@ -101,6 +101,13 @@ public class JuliaTest {
 		assertEquals(result, 10);
 	}
 	
+	@Test
+	public void escapeTimeforNewEscDistAndTime(){
+		obj = new JuliaSet(2, 135);
+		int result = obj.escapeTime(1.0492187499999897, -0.234375);
+		assertEquals(result, 135);
+	}
+	
 	
 }
 

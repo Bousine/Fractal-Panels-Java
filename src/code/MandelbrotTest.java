@@ -109,6 +109,13 @@ public class MandelbrotTest {
 		int result = object.getEscapeTime(0.46007827788650374, -0.3383561643835661);
 		assertEquals(result, 10);
 	}
+	
+	@Test
+	public void escapeTimeforNewEscDistAndTime(){
+		object = new MandelbrotSet(2, 135);
+		int result = object.getEscapeTime(0.3207031250000001, -0.07109374999999386);
+		assertEquals(result, 135);
+	}
 
 
 }
