@@ -113,6 +113,7 @@ public class MultibrotTest {
 		obj = new MultibrotSet(2, 135);
 		int result = obj.escapeTime(0.5859375, 0.24375000000000108);
 		assertEquals(result, 135);
+		
 	}
 	
 }

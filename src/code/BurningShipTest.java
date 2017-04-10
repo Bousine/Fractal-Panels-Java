@@ -117,5 +117,6 @@ public class BurningShipTest {
 		obj = new BurningShipSet(2, 135);
 		int result = obj.escapeTime(-1.7443359374999874, -0.017451171875000338);
 		assertEquals(result, 135);
+		
 	}
 }
