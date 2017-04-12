@@ -94,7 +94,9 @@ public class MandelbrotTest {
 		assertEquals(512, result.length);
 		assertEquals(512, result[0].length);
 	}
-	
+	/**
+	 * Tests the change for new escape distance
+	 */
 	@Test
 	public void escapeDistanceChange(){
 		object = new MandelbrotSet(3, 255);
@@ -102,14 +104,18 @@ public class MandelbrotTest {
 		object = new MandelbrotSet(10.55, 255);
 		assertEquals(object.getEscapeDistance(), 10.55, 0.0);
 	}
-	
+	/**
+	 * Tests the escape distance for new escape distance
+	 */
 	@Test
 	public void escapeTimeforNewEscDist(){
 		object = new MandelbrotSet(3, 255);
 		int result = object.getEscapeTime(0.46007827788650374, -0.3383561643835661);
 		assertEquals(result, 10);
 	}
-	
+	/**
+	 * Tests the new escape distance and escape distance
+	 */
 	@Test
 	public void escapeTimeforNewEscDistAndTime(){
 		object = new MandelbrotSet(2, 135);

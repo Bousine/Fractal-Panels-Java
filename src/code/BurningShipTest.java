@@ -96,7 +96,9 @@ public class BurningShipTest {
 		assertEquals(512, result.length);
 		assertEquals(512, result[0].length);
 	}
-	
+	/**
+	 * Tests the change for new escape distance
+	 */
 	@Test
 	public void escapeDistanceChange(){
 		obj = new BurningShipSet(3, 255);
@@ -104,14 +106,18 @@ public class BurningShipTest {
 		obj = new BurningShipSet(10.55, 255);
 		assertEquals(obj.getEscapeDistance(), 10.55, 0.0);
 	}
-	
+	/**
+	 * Tests the escape distance for new escape distance
+	 */
 	@Test
 	public void escapeTimeforNewEscDist(){
 		obj = new BurningShipSet(3, 255);
 		int result = obj.escapeTime(-1.6999999999999802, 0.0030136986301371603);
 		assertEquals(result, 10);
 	}
-	
+	/**
+	 * Tests the new escape distance and escape distance
+	 */
 	@Test
 	public void escapeTimeforNewEscDistAndTime(){
 		obj = new BurningShipSet(2, 135);

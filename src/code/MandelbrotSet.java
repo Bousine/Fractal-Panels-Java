@@ -21,7 +21,7 @@ public class MandelbrotSet {
 	private int[][] _escapeTime;
 	/** Escape Distance */
 	private double _escDist;
-	
+	/** Escape Time */
 	private double _escTime;
 	
 	/** Minimum x-coordinate */
@@ -52,6 +52,11 @@ public class MandelbrotSet {
 			}
 		}	
 	}
+	/**
+	 * Calculates the escape-times of all points in the fractal
+	 * 
+	 * @return 2-d array which contains the respective escape-time of the points
+	 */
 	public int[][] fractalCalc(){
 		int[][] grid = new int[_noOfRows][_noOfCols];
 		for(int row = 0; row < _noOfRows; row++){
@@ -125,11 +130,20 @@ public class MandelbrotSet {
 	public int[][] returnResult(){
 		return _escapeTime;
 	}
-
+	/**
+	 * Acquires Escape Distance
+	 * @return
+	 */
 	public double getEscapeDistance(){
 		return _escDist;
 	}
-	
+	/**
+	 * Changes fractal coordinates for zooming
+	 * @param rowStart- beginning of new row
+	 * @param rowEnd- end of new row
+	 * @param colStart- beginning of new column
+	 * @param colEnd- end of new column
+	 */
 	public void zoomInitialize(int rowStart, int rowEnd, int colStart, int colEnd){
 		_xStart = arrayToCoordinate(rowStart, -2.15, 0.6, _noOfRows); 
 		//System.out.println(_xStart);

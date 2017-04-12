@@ -33,7 +33,7 @@ public class MultibrotSet {
 	private int _noOfCols;
 	/** Escape Distance */
 	private double _escDist;
-	
+	/** Escape Time */
 	private double _escTime;
 	
 	
@@ -123,11 +123,20 @@ public class MultibrotSet {
 		double result = start + i * rangeInc(start, end, div);
 		return result;
 	}
-	
+	/**
+	 * Acquires Escape Distance
+	 * @return
+	 */
 	public double getEscapeDistance(){
 		return _escDist;
 	}
-
+	/**
+	 * Changes fractal coordinates for zooming
+	 * @param rowStart- beginning of new row
+	 * @param rowEnd- end of new row
+	 * @param colStart- beginning of new column
+	 * @param colEnd- end of new column
+	 */
 	public void zoomInitialize(int rowStart, int rowEnd, int colStart, int colEnd){
 		_xStart = arrayToCoordinate(rowStart, -1.0, 1.0, _noOfRows); 
 		//System.out.println(_xStart);
