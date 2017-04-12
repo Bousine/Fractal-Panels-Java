@@ -33,9 +33,6 @@ public class MouseHandler implements MouseListener, MouseMotionListener{
 		_zoom = new Rectangle(xTopLeft, yTopLeft, width, height);
 		_model.updateFeedback("Zooming "+ _zoom);
 		
-		/*int xx = me.getX();
-		int yy = me.getY();
-		_model.selectionSizer(xx, yy);*/
 	}
 
 	@Override
@@ -53,9 +50,6 @@ public class MouseHandler implements MouseListener, MouseMotionListener{
 		_clicked = new Point(adjustedX, adjustedY);
 		_model.updateFeedback("Point ("+ _clicked.getX() + "," + _clicked.getX() + ") selected");
 		
-		/*int xx = me.getX();
-		int yy = me.getY();
-		_model.selectionMaker(xx, yy);*/
 	}
 
 	@Override

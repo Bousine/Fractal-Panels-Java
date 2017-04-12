@@ -151,20 +151,6 @@ public class Model {
         	 }
          }
          
-         public void selectionMaker(int xx, int yy){
-        	 _selection.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
-        	 _selection.setVisible(true);
-        	 _selection.setBounds(xx, yy, 10, 10);
-        	 _f.add(_selection);
-        	 
-         }
-         
-         public void selectionSizer(int xx, int yy){
-        	 _selection.setVisible(true);
-        	 _selection.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
-        	 _f.add(_selection);
-        	 
-         }
          
          public void updateFeedback(String string){
         	 if(!(_inputFractal==-1)){

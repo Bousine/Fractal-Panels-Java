@@ -21,7 +21,9 @@ public class Gui extends JFrame {
 	 *  reference to model passed by model itself
 	 */
     private Model _model;
-    
+    /**
+	 *  reference to dropdown menu
+	 */
     private DropDownMenu _menubar;
     
 	/** Constructor
@@ -39,7 +41,10 @@ public class Gui extends JFrame {
 		
 	}
 	
-	
+	/**
+	 * updates zoom coordinates and dimensions to display
+	 * @param string- zoom coordinates and dimensions
+	 */
 	public void updateFeedback(String string){
 		_menubar.updateFeedback(string);
 	}

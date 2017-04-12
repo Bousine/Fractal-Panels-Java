@@ -29,13 +29,13 @@ public class DropDownMenu extends JMenuBar{
 	 *  instance of model
 	 */
 	private Model _model;
+	
+	
+	private JTextField _VisualFeedBack;
 	/** Constructor
 	 * 
 	 * @param model this is reference to model passed by model itself to gui and from gui to dropdownmenu
 	 */
-	
-	private JTextField _VisualFeedBack;
-	
 	
 	public DropDownMenu(Model model){
 		super();
@@ -119,7 +119,10 @@ public class DropDownMenu extends JMenuBar{
 		this.add(_VisualFeedBack);		
 	}
 	
-	
+	/**
+	 * sends zoom coordinates and dimensions to display
+	 * @param string- zoom coordinates and dimensions
+	 */
 	public void updateFeedback(String string){
 		_VisualFeedBack.setText(string);
 	}
