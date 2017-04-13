@@ -110,7 +110,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener{
 		
 	}
 	/**
-	 * mouse enetered event
+	 * mouse entered event
 	 */
 	@Override
 	public void mouseEntered(MouseEvent e) {
