@@ -1,1 +1,3 @@
 Update escape distance by selecting Distance > New Escape Distance in the drop down menu and entering a new value.
+
+Update escape time by selecting Time > New Escape Time in the drop down menu and entering a new value.
