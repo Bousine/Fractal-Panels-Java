@@ -3,17 +3,36 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import edu.buffalo.cse116.*;
-
+/**
+ * Class which listens to user mouse input
+ * 
+ * @author Mark Kayutkin
+ * @author Asif Hasan
+ * @author Xiangshuai Gao
+ */
 public class MouseHandler implements MouseListener, MouseMotionListener{
+	/**
+	 * shape of zoom selection
+	 */
 	private Rectangle _zoom;
+	/**
+	 * point of first mouse pressed
+	 */
 	private Point _clicked;
-	private Point _dragged;
+	/**
+	 * instance of model
+	 */
 	private Model _model;
-	
+	/**
+	 * Constructor
+	 * @param model- instance of model
+	 */
 	public MouseHandler(Model model){
 		_model = model;
 	}
-	
+	/**
+	 * mouse dragged event
+	 */
 	@Override
 	public void mouseDragged(MouseEvent me) {
 		Point _dragged = new Point();
@@ -34,7 +53,9 @@ public class MouseHandler implements MouseListener, MouseMotionListener{
 		_model.updateFeedback("Zooming "+ _zoom);
 		
 	}
-
+	/**
+	 * mouse pressed event
+	 */
 	@Override
 	public void mousePressed(MouseEvent me) {
 		_clicked = me.getPoint();
@@ -51,7 +72,9 @@ public class MouseHandler implements MouseListener, MouseMotionListener{
 		_model.updateFeedback("Point ("+ _clicked.getX() + "," + _clicked.getX() + ") selected");
 		
 	}
-
+	/**
+	 * mouse released event
+	 */
 	@Override
 	public void mouseReleased(MouseEvent me) {
 		_clicked = null;
@@ -70,25 +93,33 @@ public class MouseHandler implements MouseListener, MouseMotionListener{
 			System.out.println("Bottom Edge: " + (_zoom.y + _zoom.height));*/
 		}
 	}
-
+	/**
+	 * mouse moved event
+	 */
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	/**
+	 * mouse clicked event
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	/**
+	 * mouse enetered event
+	 */
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	/**
+	 * mouse exited event
+	 */
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub

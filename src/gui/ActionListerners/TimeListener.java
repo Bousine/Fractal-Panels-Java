@@ -8,7 +8,13 @@ import javax.swing.JOptionPane;
 import edu.buffalo.cse116.Model;
 import gui.DropDownMenu;
 
-
+/**
+ * Class which listens to user input for time
+ * 
+ * @author Mark Kayutkin
+ * @author Asif Hasan
+ * @author Xiangshuai Gao
+ */
 public class TimeListener implements ActionListener{
 	/**
 	 *  reference to model

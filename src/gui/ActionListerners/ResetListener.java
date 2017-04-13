@@ -5,15 +5,28 @@ import java.awt.event.ActionListener;
 
 import edu.buffalo.cse116.Model;
 
-
-// This listener will just reset the factual back to the original and won't do anything until we actually implement the zoom method 
+/**
+ * Class which listens to user input for reseting fractal
+ * 
+ * @author Mark Kayutkin
+ * @author Asif Hasan
+ * @author Xiangshuai Gao
+ */
 public class ResetListener implements ActionListener{
+	/**
+	 * instance of model
+	 */
 	private Model _model;
-
+	/**
+	 * Constructor
+	 * @param model- instance of model
+	 */
 	public ResetListener(Model model){
 		_model = model;
 	}
-	
+	/**
+     * action listener function for resetListener
+     */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		_model.updateFactal();

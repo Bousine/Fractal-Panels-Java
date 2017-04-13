@@ -29,8 +29,9 @@ public class DropDownMenu extends JMenuBar{
 	 *  instance of model
 	 */
 	private Model _model;
-	
-	
+	/**
+	 *  instance of zooming coordinates visual text
+	 */
 	private JTextField _VisualFeedBack;
 	/** Constructor
 	 * 

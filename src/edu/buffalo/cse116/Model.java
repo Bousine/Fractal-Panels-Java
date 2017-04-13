@@ -32,22 +32,17 @@ public class Model {
 	      */
          private double _inputDistance;
          /**
-	      * this is the current input fractal choice
+	      * this is the current input time
 	      */
          private double _inputTime;
-         private JLabel _selection;
+         /**
+	      * this is the current input fractal choice
+	      */
          private int _inputFractal;
          /**
           * this is the gui window
           */
          private Gui _window;
-         private JLabel _VisualFeedBack;
-         
-         private int leftEdge;
-         private int rightEdge;
-         private int topEdge;
-         private int bottomEdge;
-         
          /**
           * constructor
           */
@@ -72,11 +67,17 @@ public class Model {
         	 _inputDistance = input;
         	 this.updateFactal();
          }
+         /** this sets _inputTime to the new time
+          * 
+          * @param input time from user
+          */
          public void SetInputTime(double input){
         	 _inputTime = input;
         	 this.updateFactal();
          }
-         
+         /**
+          * updates fractal
+          */
          public void updateFactal(){
         	 if(!(_inputFractal==-1)){
         	 this.SetFractal(_inputFractal);
@@ -126,7 +127,13 @@ public class Model {
         	 }
         	 _inputFractal = s;
          }
-         
+         /**
+          * Recalculates fractal display using new zoomed coordinates and dimensions
+          * @param topEdge- start of y coordinates
+          * @param bottomEdge- end of y coordinates
+          * @param leftEdge- start of x coordinates
+          * @param rightEdge- end of x coordinates
+          */
          public void zoomSelection(int topEdge, int bottomEdge, int leftEdge, int rightEdge){
         	 if(_inputFractal == 1){
         		 BurningShipSet bs = new BurningShipSet(_inputDistance, _inputTime);
@@ -151,7 +158,10 @@ public class Model {
         	 }
          }
          
-         
+         /**
+     	 * updates zoom coordinates and dimensions to display
+     	 * @param string- zoom coordinates and dimensions
+     	 */
          public void updateFeedback(String string){
         	 if(!(_inputFractal==-1)){
         		 _window.updateFeedback(string);
