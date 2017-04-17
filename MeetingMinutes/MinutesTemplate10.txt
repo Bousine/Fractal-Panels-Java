@@ -1,0 +1,19 @@
+Meeting Minutes for ___4/17/17____:
+
+Meeting Attendance:
+  *Asif	
+  *Gao
+  *Mark M
+
+Tasks completed since last meeting:
+  *Phase 3
+  
+
+Tasks started, but not completed, since last meeting:
+  *N/A
+
+Tasks to be worked on (and by which team members) for the next meeting:
+  *Phase 4
+
+Schedule for the next week's set of pair programming meetings:
+  *4/24/17 (next recitation)
