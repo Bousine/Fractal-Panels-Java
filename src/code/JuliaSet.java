@@ -49,8 +49,8 @@ public class JuliaSet {
 	
 	/** Constructor to instantiate instance variables */
 	public JuliaSet(double escDist, double escTime){
-		_row = 512;
-		_col = 512;
+		_row = 2048;
+		_col = 2048;
 		_fractal = new int[_row][_col];
 		_xEnd = 1.7;
 		_xStart = -1.7;
@@ -60,8 +60,8 @@ public class JuliaSet {
 		_yConstant = 0.188887;
 		_escDist = escDist;
 		_escTime = escTime;
-		_noOfRows = 512;
-		_noOfCols = 512;
+		_noOfRows = 2048;
+		_noOfCols = 2048;
 	}
 	
 	/**

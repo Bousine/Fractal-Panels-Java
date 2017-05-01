@@ -43,10 +43,10 @@ public class BurningShipSet {
 	public BurningShipSet(double escDist, double escTime){
 		_xStart = -1.8;
 		_xEnd = -1.7;
-		_noOfRows = 512;
+		_noOfRows = 2048;
 		_yStart = -0.08;
 		_yEnd = 0.025;
-		_noOfCols = 512;
+		_noOfCols = 2048;
 		_escDist = escDist;
 		_escTime = escTime;
 	}

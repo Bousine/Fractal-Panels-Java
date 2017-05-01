@@ -48,6 +48,7 @@ public class Model {
           */
          public Model(){
         	 _f = new FractalPanel();
+        	 _f.setSize(2048, 2048);
         	 _inputDistance = 2;
         	 _inputTime = 255;
         	 _inputFractal = -1;

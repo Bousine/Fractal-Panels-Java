@@ -40,13 +40,13 @@ public class MandelbrotSet {
 	 * Constructor
 	 */
 	public MandelbrotSet(double escDist, double escTime){
-		_noOfRows = 512;
-		_noOfCols = 512;
+		_noOfRows = 2048;
+		_noOfCols = 2048;
 		_escDist = escDist;
 		_escTime = escTime;
-		_escapeTime = new int[512][512];
-		for(int y = 0; y < 512; y+=1){
-			for(int x = 0; x<512; x+=1){
+		_escapeTime = new int[_noOfRows][_noOfCols];
+		for(int y = 0; y < _noOfRows; y+=1){
+			for(int x = 0; x<_noOfRows; x+=1){
 				Point2D.Double point = this.getCoordinates(x, y);
 				_escapeTime[x][y] = this.getEscapeTime(point.x, point.y);
 			}
@@ -98,8 +98,8 @@ public class MandelbrotSet {
 	 */
 	public Point2D.Double getCoordinates(int x, int y){
 		Point2D.Double point = new Point2D.Double();
-	    point.x = (x * (2.15+0.6)/512)-2.15;	
-		point.y = (y * (1.3+1.3)/512)-1.3;
+	    point.x = (x * (2.15+0.6)/_noOfRows)-2.15;	
+		point.y = (y * (1.3+1.3)/_noOfRows)-1.3;
 		return point;
 	}
 	

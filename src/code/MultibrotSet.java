@@ -41,10 +41,10 @@ public class MultibrotSet {
 	public MultibrotSet(double escDist, double escTime){
 		_xStart = -1.0;
 		_xEnd = 1.0;
-		_noOfRows = 512;
+		_noOfRows = 2048;
 		_yStart = -1.3;
 		_yEnd = 1.3;
-		_noOfCols = 512;
+		_noOfCols = 2048;
 		_escDist = escDist;
 		_escTime = escTime;
 	}
