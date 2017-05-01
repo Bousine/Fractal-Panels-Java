@@ -41,8 +41,8 @@ public class MouseHandler implements MouseListener, MouseMotionListener{
 		Component f = me.getComponent();		
 		Rectangle r = new Rectangle();
 		r = f.getBounds();
-		int adjustedY = (int) (_dragged.y/r.getHeight() * 512);
-		int adjustedX = (int) (_dragged.x/r.getWidth() * 512);
+		int adjustedY = (int) (_dragged.y/r.getHeight() * 2048);
+		int adjustedX = (int) (_dragged.x/r.getWidth() * 2048);
 		_dragged = new Point(adjustedX, adjustedY);
 		
 		int xTopLeft = Math.min(_clicked.x, _dragged.x);
@@ -65,8 +65,8 @@ public class MouseHandler implements MouseListener, MouseMotionListener{
 		
 		Rectangle r = new Rectangle();
 		r = f.getBounds();
-		int adjustedY = (int) (_clicked.y/r.getHeight() * 512);
-		int adjustedX = (int) (_clicked.x/r.getWidth() * 512);
+		int adjustedY = (int) (_clicked.y/r.getHeight() * 2048);
+		int adjustedX = (int) (_clicked.x/r.getWidth() * 2048);
 		
 		_clicked = new Point(adjustedX, adjustedY);
 		_model.updateFeedback("Point ("+ _clicked.getX() + "," + _clicked.getX() + ") selected");
