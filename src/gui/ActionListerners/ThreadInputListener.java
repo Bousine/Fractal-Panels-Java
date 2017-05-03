@@ -16,12 +16,15 @@ public class ThreadInputListener implements ActionListener{
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		int inputValue;
+	public void actionPerformed(ActionEvent e) throws NumberFormatException {
+		Integer inputValue = 1;
 		String input = JOptionPane.showInputDialog("Enter a whole number greater than 0");
 		
-		do{
+		while(true){
 		try{
+			if(input == null){
+				throw new NullPointerException();
+			}
 			inputValue = Integer.parseInt(input);
 			if(!(inputValue > 0)){
 				throw new NumberFormatException();
@@ -29,15 +32,21 @@ public class ThreadInputListener implements ActionListener{
 			_model.SetInputhread(inputValue);
 			break;
 		}
-		catch(NumberFormatException d){
-			input = JOptionPane.showInputDialog("Invalid value, try again");
-		 }
+			
+			catch(NumberFormatException d){
+				input = JOptionPane.showInputDialog("Invalid value, try again");
+				
+			 }
 		catch(NullPointerException f){
 			break;
+		  }
 		}
-		
-		}while(true);
-		
 	}
+		
+		
+		
+		
+		
+	
 
 }

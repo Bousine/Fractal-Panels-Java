@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 import edu.buffalo.cse116.Model;
-import gui.DropDownMenu;
 
 /**
  * Class which listens to user input for distance
