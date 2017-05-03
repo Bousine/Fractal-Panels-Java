@@ -23,6 +23,11 @@ import gui.ActionListerners.*;
  */
 
 public class Model {
+	
+	    // this does nothing until we can implement mutithreading.
+	    // Since set classes do the actual calculations, we should implement threading there.  
+	     private int _ThreadInput = 1;
+	
 	     /**
 	      * this is the fractal panel
 	      */
@@ -58,6 +63,10 @@ public class Model {
         	 _f.addMouseListener(mouse);
         	 _f.addMouseMotionListener(mouse);
         	 
+         }
+         
+         public void SetInputhread(int input){
+        	 _ThreadInput = input;
          }
          
          /** this sets _inputDistance to the new distance

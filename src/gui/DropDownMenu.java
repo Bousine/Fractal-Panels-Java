@@ -56,6 +56,7 @@ public class DropDownMenu extends JMenuBar{
 		JMenu distance = new JMenu("Distance");
 		JMenu time = new JMenu("Time");
 		JMenu ZoomOption = new JMenu("Zoom Options");
+		JMenu ThreadOption = new JMenu("Thread Options");
 		
 		_VisualFeedBack = new JTextField("Selected Zoomed coordinates will appear here");
 		_VisualFeedBack.setEditable(false);
@@ -94,6 +95,9 @@ public class DropDownMenu extends JMenuBar{
 		JMenuItem reset = new JMenuItem("Reset");
 		reset.addActionListener(new ResetListener(_model));
 		
+		JMenuItem threadSet = new JMenuItem("New Thread Number");
+		threadSet.addActionListener(new ThreadInputListener(_model));
+		
 		 
 		
 		
@@ -109,6 +113,7 @@ public class DropDownMenu extends JMenuBar{
 		distance.add(submit);
 		time.add(timeSet);
 		ZoomOption.add(reset);
+		ThreadOption.add(threadSet);
 		
 		this.add(file);
 		this.add(fractals);
@@ -116,6 +121,7 @@ public class DropDownMenu extends JMenuBar{
 		this.add(distance);
 		this.add(time);
 		this.add(ZoomOption);
+		this.add(ThreadOption);
 		this.add(new JPanel());
 		this.add(_VisualFeedBack);		
 	}
