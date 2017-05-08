@@ -41,7 +41,6 @@ public class ThreadInputListener implements ActionListener{
 			break;
 		  }
 		}
-		_model.updateFactal();
 	}
 		
 		

@@ -47,6 +47,8 @@ public class Model {
           */
          private Gui _window;
          
+         private int _startingRow;
+         
         private int _colorInput;
          
         private  ComputePool _pool;
@@ -66,13 +68,14 @@ public class Model {
         	 _inputTime = 255;
         	 _ThreadInput = 1;
         	 _colorInput = 1;
-        	 _fractalInput = 1;
+        	 _fractalInput = 0;
         	 _window = new Gui(this);
         	 _window.add(_f);
         	 MouseHandler mouse = new MouseHandler(this);
         	 _f.addMouseListener(mouse);
         	 _f.addMouseMotionListener(mouse);
         	 this.SetColor(_colorInput);
+        	 _startingRow = 0;
          }
          
          public void SetInputhread(int input){
@@ -133,13 +136,14 @@ public class Model {
           */
          public void SetFractal(int s){
         	 //pretty sure issue lies here and it has something to do with the starterRow
-        	 int starterRow = 0;
+        	 int starterRow = _startingRow;
+        	 _fractalInput = s;
         	 if (s==1){
         		 _workers = new BurningShipSet[_ThreadInput];
         		 for(int i = 0; i<_ThreadInput; i++){
         		 _workers[i] = new BurningShipSet(_inputDistance, _inputTime, starterRow, 2048/_ThreadInput);
         		 if(starterRow<2048){
-            		 starterRow += 2048/_ThreadInput+1;
+            		 starterRow = 2048/_ThreadInput;
         		}
         		 }
         	 }
@@ -148,7 +152,7 @@ public class Model {
         		 for(int i = 0; i<_ThreadInput; i++){
         		 _workers[i] = new JuliaSet(_inputDistance, _inputTime, starterRow, 2048/_ThreadInput);
         		if(starterRow<2048){
-            		 starterRow += 2048/_ThreadInput+1;
+            		 starterRow = 2048/_ThreadInput;
         		}
         		 }
         	 }
@@ -157,7 +161,7 @@ public class Model {
         		 for(int i = 0; i<_ThreadInput; i++){
         		 _workers[i] = new MandelbrotSet(_inputDistance, _inputTime, starterRow, 2048/_ThreadInput);
         		 if(starterRow<2048){
-            		 starterRow += 2048/_ThreadInput+1;
+            		 starterRow = 2048/_ThreadInput;
         		}
         		 }
         	 }
@@ -166,11 +170,11 @@ public class Model {
         		 for(int i = 0; i<_ThreadInput; i++){
         		 _workers[i] = new MultibrotSet(_inputDistance, _inputTime, starterRow, 2048/_ThreadInput);
         		 if(starterRow<2048){
-            		 starterRow += 2048/_ThreadInput+1;
+            		 starterRow = 2048/_ThreadInput;
         		} 
         		 }
         	 }
-           _fractalInput = s;
+           
         	
         	
          }
@@ -181,29 +185,30 @@ public class Model {
           * @param leftEdge- start of x coordinates
           * @param rightEdge- end of x coordinates
           */
-        /** public void zoomSelection(int topEdge, int bottomEdge, int leftEdge, int rightEdge){
-        	 if(_inputFractal == 1){
-        		 BurningShipSet bs = new BurningShipSet(_inputDistance, _inputTime);
+        public void zoomSelection(int topEdge, int bottomEdge, int leftEdge, int rightEdge){
+        	 if(_fractalInput == 1){
+        		 BurningShipSet bs = new BurningShipSet(_inputDistance, _inputTime, 0, 2048);
         		 bs.zoomInitialize(leftEdge, rightEdge, topEdge, bottomEdge);
-        		 _f.updateImage(bs.fractalCalc());
+        		 this.updateFactal();
         	 }
-        	 if(_inputFractal == 2){
-        		 JuliaSet js = new JuliaSet(_inputDistance, _inputTime);
+        	 if(_fractalInput == 2){
+        		 JuliaSet js = new JuliaSet(_inputDistance, _inputTime, 0, 2048);
         		 js.zoomInitialize(leftEdge, rightEdge, topEdge, bottomEdge);
-        		 _f.updateImage(js.fractalCalc());
+        		 this.updateFactal();
         	 }
         	 
-        	 if(_inputFractal == 3){
-        		 MandelbrotSet ms = new MandelbrotSet(_inputDistance, _inputTime);
+        	 if(_fractalInput == 3){
+        		 MandelbrotSet ms = new MandelbrotSet(_inputDistance, _inputTime, 0, 2048);
         		 ms.zoomInitialize(leftEdge, rightEdge, topEdge, bottomEdge);
-        		 _f.updateImage(ms.fractalCalc());
+        		 this.updateFactal();
         	 }
-        	 if(_inputFractal == 4){
-        		 MultibrotSet mls = new MultibrotSet(_inputDistance, _inputTime);
+        	 if(_fractalInput == 4){
+        		 MultibrotSet mls = new MultibrotSet(_inputDistance, _inputTime, 0, 2048);
         		 mls.zoomInitialize(leftEdge, rightEdge, topEdge, bottomEdge);
-        		 _f.updateImage(mls.fractalCalc());
+        		 this.updateFactal();
         	 }
-         }*/
+        	 
+         }
          
          /**
      	 * updates zoom coordinates and dimensions to display
@@ -214,6 +219,14 @@ public class Model {
         		 _window.updateFeedback(string);
             	 }
      	}
+         
+        public void changeStart(int start){
+        	_startingRow = start;
+        }
+        
+        public void updateZoom(){
+        	
+        }
 }
 
 
