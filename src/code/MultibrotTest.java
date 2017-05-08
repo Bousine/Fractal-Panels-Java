@@ -26,7 +26,7 @@ public class MultibrotTest {
 	 */
 	@Before
 	public void SetUp(){
-		obj = new MultibrotSet(2, 255);
+		obj = new MultibrotSet(2, 255, 0, 512);
 	}
 	
 	/**
@@ -36,7 +36,7 @@ public class MultibrotTest {
 	public void fractalArrayReturnCheck(){
 		assertFalse(obj.fractalCalc()==null);
 		assertEquals(512, obj.fractalCalc().length);
-		assertEquals(512, obj.fractalCalc()[0].length);
+		assertEquals(2048, obj.fractalCalc()[0].length);
 		
 	}
 	/**
@@ -97,9 +97,9 @@ public class MultibrotTest {
 	 */
 	@Test
 	public void escapeDistanceChange(){
-		obj = new MultibrotSet(3, 255);
+		obj = new MultibrotSet(3, 255, 0, 512);
 		assertEquals(obj.getEscapeDistance(), 3, 0.0);
-		obj = new MultibrotSet(10.55, 255);
+		obj = new MultibrotSet(10.55, 255, 0, 512);
 		assertEquals(obj.getEscapeDistance(), 10.55, 0.0);
 	}
 	/**
@@ -107,7 +107,7 @@ public class MultibrotTest {
 	 */
 	@Test
 	public void escapeTimeforNewEscDist(){
-		obj = new MultibrotSet(3, 255);
+		obj = new MultibrotSet(3, 255, 0, 512);
 		int result = obj.escapeTime(0.7025440313111545, -0.5520547945205528);
 		assertEquals(result, 10);
 	}
@@ -116,7 +116,7 @@ public class MultibrotTest {
 	 */
 	@Test
 	public void escapeTimeforNewEscDistAndTime(){
-		obj = new MultibrotSet(2, 135);
+		obj = new MultibrotSet(2, 135, 0, 512);
 		int result = obj.escapeTime(0.5859375, 0.24375000000000108);
 		assertEquals(result, 135);
 		

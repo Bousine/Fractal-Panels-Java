@@ -18,7 +18,7 @@ public class BurningShipTest {
 	
 	@Before
 	public void setup(){
-		obj = new BurningShipSet(2, 255);		
+		obj = new BurningShipSet(2, 255, 0, 512);		
 	}
 	
 	/**
@@ -94,16 +94,16 @@ public class BurningShipTest {
 		
 		int[][] result = obj.fractalCalc();
 		assertEquals(512, result.length);
-		assertEquals(512, result[0].length);
+		assertEquals(2048, result[0].length);
 	}
 	/**
 	 * Tests the change for new escape distance
 	 */
 	@Test
 	public void escapeDistanceChange(){
-		obj = new BurningShipSet(3, 255);
+		obj = new BurningShipSet(3, 255, 0, 512);
 		assertEquals(obj.getEscapeDistance(), 3, 0.0);
-		obj = new BurningShipSet(10.55, 255);
+		obj = new BurningShipSet(10.55, 255, 0, 512);
 		assertEquals(obj.getEscapeDistance(), 10.55, 0.0);
 	}
 	/**
@@ -111,7 +111,7 @@ public class BurningShipTest {
 	 */
 	@Test
 	public void escapeTimeforNewEscDist(){
-		obj = new BurningShipSet(3, 255);
+		obj = new BurningShipSet(3, 255, 0, 512);
 		int result = obj.escapeTime(-1.6999999999999802, 0.0030136986301371603);
 		assertEquals(result, 10);
 	}
@@ -120,7 +120,7 @@ public class BurningShipTest {
 	 */
 	@Test
 	public void escapeTimeforNewEscDistAndTime(){
-		obj = new BurningShipSet(2, 135);
+		obj = new BurningShipSet(2, 135, 0, 512);
 		int result = obj.escapeTime(-1.7443359374999874, -0.017451171875000338);
 		assertEquals(result, 135);
 		
