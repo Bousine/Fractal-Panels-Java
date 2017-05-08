@@ -34,7 +34,7 @@ public class Gui extends JFrame {
 		super("Fractal Builder");
 		_model = model;
 		_menubar = new DropDownMenu(_model);
-		this.setSize(800,800);
+		this.setSize(1000,1000);
 	    this.add(_menubar, BorderLayout.NORTH);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

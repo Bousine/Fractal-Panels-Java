@@ -1,6 +1,8 @@
 package code;
 
+import javax.swing.SwingWorker;
 
+import edu.buffalo.fractal.WorkerResult;
 
 /**
  * Class which calculates escape-time in its methods to generate a Multibrot fractal 
@@ -10,7 +12,7 @@ package code;
  * @author Xiangshuai Gao 
  */
 
-public class MultibrotSet {
+public class MultibrotSet  extends SwingWorker<WorkerResult, Void>{
 	/** Stores the current x-coordinate of the point */
 	private double _currentX;
 	/** Stores the current y-coordinate of the point */
@@ -35,13 +37,14 @@ public class MultibrotSet {
 	private double _escDist;
 	/** Escape Time */
 	private double _escTime;
-	
+	private int _starterRow;
 	
 	/** Constructor to instantiate instance variables */
-	public MultibrotSet(double escDist, double escTime){
+	public MultibrotSet(double escDist, double escTime, int starterRow, int numRows){
+		_starterRow = starterRow;
 		_xStart = -1.0;
 		_xEnd = 1.0;
-		_noOfRows = 2048;
+		_noOfRows = numRows;
 		_yStart = -1.3;
 		_yEnd = 1.3;
 		_noOfCols = 2048;
@@ -146,5 +149,10 @@ public class MultibrotSet {
 		//System.out.println(_yStart);
 		_yEnd = arrayToCoordinate(colEnd, -1.3, 1.3, _noOfCols);
 		//System.out.println(_yEnd);
+	}
+
+	@Override
+	protected WorkerResult doInBackground() throws Exception {
+		return new WorkerResult(_starterRow, this.fractalCalc());
 	}
 }

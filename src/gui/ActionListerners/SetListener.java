@@ -38,7 +38,7 @@ public class SetListener implements ActionListener{
 	public void actionPerformed(ActionEvent arg0) {
 		
 		_model.SetFractal(_set);
-		
+		_model.updateFactal();
 	}
 
 }

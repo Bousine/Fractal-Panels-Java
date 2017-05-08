@@ -1,6 +1,8 @@
 package code;
 
+import javax.swing.SwingWorker;
 
+import edu.buffalo.fractal.WorkerResult;
 
 /**
  * Class which calculates escape-time in its methods to generate a Julia fractal 
@@ -11,7 +13,7 @@ package code;
  */
 
 
-public class JuliaSet {
+public class JuliaSet extends SwingWorker<WorkerResult, Void>{
 	/** Stores updated value of x */
 	private double _xCalc;
 	/** Stores updated value of y */
@@ -46,10 +48,12 @@ public class JuliaSet {
 	private int _noOfRows;
 	/** Number of columns */
 	private int _noOfCols;
+	private int _starterRow;
 	
 	/** Constructor to instantiate instance variables */
-	public JuliaSet(double escDist, double escTime){
-		_row = 2048;
+	public JuliaSet(double escDist, double escTime, int starterRow, int numRows){
+		_starterRow = starterRow;
+		_row = numRows;
 		_col = 2048;
 		_fractal = new int[_row][_col];
 		_xEnd = 1.7;
@@ -60,7 +64,7 @@ public class JuliaSet {
 		_yConstant = 0.188887;
 		_escDist = escDist;
 		_escTime = escTime;
-		_noOfRows = 2048;
+		_noOfRows = numRows;
 		_noOfCols = 2048;
 	}
 	
@@ -161,6 +165,11 @@ public class JuliaSet {
 		//System.out.println(_yStart);
 		_yEnd = arrayToCoordinate(colEnd, -1.0, 1.0, _noOfCols);
 		//System.out.println(_yEnd);
+	}
+
+	@Override
+	protected WorkerResult doInBackground() throws Exception {
+		return new WorkerResult(_starterRow, this.fractalCalc());
 	}
 	
 	

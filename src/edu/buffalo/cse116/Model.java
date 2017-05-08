@@ -1,6 +1,8 @@
 package edu.buffalo.cse116;
 
+import edu.buffalo.fractal.ComputePool;
 import edu.buffalo.fractal.FractalPanel;
+import edu.buffalo.fractal.WorkerResult;
 import gui.ColorModelFactory;
 import gui.Gui;
 import code.BurningShipSet;
@@ -26,7 +28,7 @@ public class Model {
 	
 	    // this does nothing until we can implement mutithreading.
 	    // Since set classes do the actual calculations, we should implement threading there.  
-	     private int _ThreadInput = 1;
+	     private int _ThreadInput;
 	
 	     /**
 	      * this is the fractal panel
@@ -41,28 +43,36 @@ public class Model {
 	      */
          private double _inputTime;
          /**
-	      * this is the current input fractal choice
-	      */
-         private int _inputFractal;
-         /**
           * this is the gui window
           */
          private Gui _window;
+         
+        private int _colorInput;
+         
+        private  ComputePool _pool;
+         
+        private  SwingWorker<WorkerResult, Void>[] _workers;
+        
+        private int _fractalInput;
          /**
           * constructor
           */
          public Model(){
         	 _f = new FractalPanel();
+        	 _workers = null;
+        	 _pool = new ComputePool();
         	 _f.setSize(2048, 2048);
         	 _inputDistance = 2;
         	 _inputTime = 255;
-        	 _inputFractal = -1;
+        	 _ThreadInput = 1;
+        	 _colorInput = 1;
+        	 _fractalInput = 1;
         	 _window = new Gui(this);
         	 _window.add(_f);
         	 MouseHandler mouse = new MouseHandler(this);
         	 _f.addMouseListener(mouse);
         	 _f.addMouseMotionListener(mouse);
-        	 
+        	 this.SetColor(_colorInput);
          }
          
          public void SetInputhread(int input){
@@ -75,7 +85,7 @@ public class Model {
           */
          public void SetInputDistance(double input){
         	 _inputDistance = input;
-        	 this.updateFactal();
+        	
          }
          /** this sets _inputTime to the new time
           * 
@@ -83,14 +93,17 @@ public class Model {
           */
          public void SetInputTime(double input){
         	 _inputTime = input;
-        	 this.updateFactal();
+        	
          }
          /**
           * updates fractal
           */
          public void updateFactal(){
-        	 if(!(_inputFractal==-1)){
-        	 this.SetFractal(_inputFractal);
+        	 if(_workers!=null){
+        	 _pool.changePanel(_f);
+        	 this.SetColor(_colorInput);
+        	 this.SetFractal(_fractalInput);
+        	 _pool.generateFractal(2048/_ThreadInput, _workers);
         	 }
          }
          
@@ -111,31 +124,55 @@ public class Model {
         	 if (c==4){
         		 _f.setIndexColorModel(ColorModelFactory.createGreensColorModel(256));
         	 }
-        	 this.updateFactal();
-        	 
+        	 _colorInput = c;
+        	
          }
          
          /** this updates the fractal to the user's preference
           * @param s input fractal choice from user
           */
          public void SetFractal(int s){
+        	 //pretty sure issue lies here and it has something to do with the starterRow
+        	 int starterRow = 0;
         	 if (s==1){
-        		 BurningShipSet bs = new BurningShipSet(_inputDistance, _inputTime);
-        		_f.updateImage(bs.fractalCalc());
+        		 _workers = new BurningShipSet[_ThreadInput];
+        		 for(int i = 0; i<_ThreadInput; i++){
+        		 _workers[i] = new BurningShipSet(_inputDistance, _inputTime, starterRow, 2048/_ThreadInput);
+        		 if(starterRow<2048){
+            		 starterRow += 2048/_ThreadInput+1;
+        		}
+        		 }
         	 }
         	 if (s==2){
-        		 JuliaSet js = new JuliaSet(_inputDistance, _inputTime);
-         		_f.updateImage(js.fractalCalc());
+        		 _workers = new JuliaSet[_ThreadInput];
+        		 for(int i = 0; i<_ThreadInput; i++){
+        		 _workers[i] = new JuliaSet(_inputDistance, _inputTime, starterRow, 2048/_ThreadInput);
+        		if(starterRow<2048){
+            		 starterRow += 2048/_ThreadInput+1;
+        		}
+        		 }
         	 }
         	 if (s==3){
-        		 MandelbrotSet ms = new MandelbrotSet(_inputDistance, _inputTime);
-         		_f.updateImage(ms.returnResult());
+        		 _workers = new MandelbrotSet[_ThreadInput];
+        		 for(int i = 0; i<_ThreadInput; i++){
+        		 _workers[i] = new MandelbrotSet(_inputDistance, _inputTime, starterRow, 2048/_ThreadInput);
+        		 if(starterRow<2048){
+            		 starterRow += 2048/_ThreadInput+1;
+        		}
+        		 }
         	 }
         	 if (s==4){
-        		 MultibrotSet mls = new MultibrotSet(_inputDistance, _inputTime);
-         		_f.updateImage(mls.fractalCalc());
+        		 _workers = new MultibrotSet[_ThreadInput];
+        		 for(int i = 0; i<_ThreadInput; i++){
+        		 _workers[i] = new MultibrotSet(_inputDistance, _inputTime, starterRow, 2048/_ThreadInput);
+        		 if(starterRow<2048){
+            		 starterRow += 2048/_ThreadInput+1;
+        		} 
+        		 }
         	 }
-        	 _inputFractal = s;
+           _fractalInput = s;
+        	
+        	
          }
          /**
           * Recalculates fractal display using new zoomed coordinates and dimensions
@@ -144,7 +181,7 @@ public class Model {
           * @param leftEdge- start of x coordinates
           * @param rightEdge- end of x coordinates
           */
-         public void zoomSelection(int topEdge, int bottomEdge, int leftEdge, int rightEdge){
+        /** public void zoomSelection(int topEdge, int bottomEdge, int leftEdge, int rightEdge){
         	 if(_inputFractal == 1){
         		 BurningShipSet bs = new BurningShipSet(_inputDistance, _inputTime);
         		 bs.zoomInitialize(leftEdge, rightEdge, topEdge, bottomEdge);
@@ -166,14 +203,14 @@ public class Model {
         		 mls.zoomInitialize(leftEdge, rightEdge, topEdge, bottomEdge);
         		 _f.updateImage(mls.fractalCalc());
         	 }
-         }
+         }*/
          
          /**
      	 * updates zoom coordinates and dimensions to display
      	 * @param string- zoom coordinates and dimensions
      	 */
          public void updateFeedback(String string){
-        	 if(!(_inputFractal==-1)){
+        	 if(_workers!=null){
         		 _window.updateFeedback(string);
             	 }
      	}

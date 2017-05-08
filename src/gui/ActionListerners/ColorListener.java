@@ -36,6 +36,7 @@ public class ColorListener implements ActionListener{
 	public void actionPerformed(ActionEvent arg0) {
 		
 		_model.SetColor(_color);
+		_model.updateFactal();
 	}
 
 }

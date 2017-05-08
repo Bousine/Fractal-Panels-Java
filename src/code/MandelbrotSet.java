@@ -3,6 +3,10 @@ package code;
 
 import java.awt.geom.Point2D;
 
+import javax.swing.SwingWorker;
+
+import edu.buffalo.fractal.WorkerResult;
+
 
 
 /**
@@ -13,7 +17,7 @@ import java.awt.geom.Point2D;
  * @author Xiangshuai Gao 
  */
 
-public class MandelbrotSet {
+public class MandelbrotSet extends SwingWorker<WorkerResult, Void> {
 	
 	/** 
 	 * this is the array that contains all 262144 escape time for the pixels.
@@ -36,16 +40,18 @@ public class MandelbrotSet {
 	private double _yEnd;
 	/** Number of columns */
 	private int _noOfCols;
+	private int _starterRow;
 	/** 
 	 * Constructor
 	 */
-	public MandelbrotSet(double escDist, double escTime){
-		_noOfRows = 2048;
+	public MandelbrotSet(double escDist, double escTime, int starterRow, int numRows){
+		_starterRow = starterRow;
+		_noOfRows = numRows;
 		_noOfCols = 2048;
 		_escDist = escDist;
 		_escTime = escTime;
 		_escapeTime = new int[_noOfRows][_noOfCols];
-		for(int y = 0; y < _noOfRows; y+=1){
+		for(int y = 0; y < _noOfCols; y+=1){
 			for(int x = 0; x<_noOfRows; x+=1){
 				Point2D.Double point = this.getCoordinates(x, y);
 				_escapeTime[x][y] = this.getEscapeTime(point.x, point.y);
@@ -99,7 +105,7 @@ public class MandelbrotSet {
 	public Point2D.Double getCoordinates(int x, int y){
 		Point2D.Double point = new Point2D.Double();
 	    point.x = (x * (2.15+0.6)/_noOfRows)-2.15;	
-		point.y = (y * (1.3+1.3)/_noOfRows)-1.3;
+		point.y = (y * (1.3+1.3)/_noOfCols)-1.3;
 		return point;
 	}
 	
@@ -178,6 +184,10 @@ public class MandelbrotSet {
 	public double arrayToCoordinate(int i, double start, double end, int div){
 		double result = start + i * rangeInc(start, end, div);
 		return result;
+	}
+	@Override
+	protected WorkerResult doInBackground() throws Exception {
+		return new WorkerResult(_starterRow, this.returnResult());
 	}
 
 }

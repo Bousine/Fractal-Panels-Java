@@ -1,5 +1,8 @@
 package code;
 
+import javax.swing.SwingWorker;
+
+import edu.buffalo.fractal.WorkerResult;
 import gui.*;
 
 /**
@@ -10,7 +13,7 @@ import gui.*;
  * @author Xiangshuai Gao 
  */
 
-public class BurningShipSet {
+public class BurningShipSet extends SwingWorker<WorkerResult, Void>{
 	/** Stores the current x-coordinate of the point */
 	private double _currentX;
 	/** Stores the current y-coordinate of the point */
@@ -36,14 +39,17 @@ public class BurningShipSet {
 	private double _escDist;
 	/** Escape Time */
 	private double _escTime;
+	private int _starterRow;
+
 	
 	
 	
 	/** Constructor to instantiate instance variables */
-	public BurningShipSet(double escDist, double escTime){
+	public BurningShipSet(double escDist, double escTime, int starterRow, int numRows){
+		_starterRow = starterRow;
 		_xStart = -1.8;
 		_xEnd = -1.7;
-		_noOfRows = 2048;
+		_noOfRows = numRows;
 		_yStart = -0.08;
 		_yEnd = 0.025;
 		_noOfCols = 2048;
@@ -148,6 +154,13 @@ public class BurningShipSet {
 		//System.out.println(_yStart);
 		_yEnd = arrayToCoordinate(colEnd, -0.08, 0.025, _noOfCols);
 		//System.out.println(_yEnd);
+	}
+	
+	
+
+	@Override
+	protected WorkerResult doInBackground() throws Exception {
+		return new WorkerResult(_starterRow, this.fractalCalc());
 	}
 
 }

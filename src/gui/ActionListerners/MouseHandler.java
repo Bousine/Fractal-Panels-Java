@@ -83,7 +83,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener{
 		    int rightEdge = _zoom.x + _zoom.width;
 		    int topEdge = _zoom.y;
 		    int bottomEdge = _zoom.y + _zoom.height;
-		    _model.zoomSelection(topEdge, bottomEdge, leftEdge, rightEdge);
+		    //_model.zoomSelection(topEdge, bottomEdge, leftEdge, rightEdge);
 		    _model.updateFeedback("Zoomed  "+ _zoom);
 		    
 			/*[For Testing Purposes]

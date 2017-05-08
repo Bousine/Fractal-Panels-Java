@@ -49,7 +49,8 @@ public class InputListener implements ActionListener{
 			break;
 		}
 		
-		}while(true);		
+		}while(true);	
+		_model.updateFactal();
 	
 	}
 }

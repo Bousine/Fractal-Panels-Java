@@ -51,7 +51,7 @@ public class TimeListener implements ActionListener{
 		}
 		
 		}while(true);		
-	
+		_model.updateFactal();
 	}
 }
 
