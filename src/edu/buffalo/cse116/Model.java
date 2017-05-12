@@ -106,7 +106,7 @@ public class Model {
         	 _pool.changePanel(_f);
         	 this.SetColor(_colorInput);
         	 this.SetFractal(_fractalInput);
-        	 _pool.generateFractal(2048/_ThreadInput, _workers);
+        	 _pool.generateFractal(2048, _workers);
         	 }
          }
          
@@ -136,42 +136,35 @@ public class Model {
           */
          public void SetFractal(int s){
         	 //pretty sure issue lies here and it has something to do with the starterRow
-        	 int starterRow = _startingRow;
+        	 int starterRow = 0;
         	 _fractalInput = s;
         	 if (s==1){
         		 _workers = new BurningShipSet[_ThreadInput];
         		 for(int i = 0; i<_ThreadInput; i++){
         		 _workers[i] = new BurningShipSet(_inputDistance, _inputTime, starterRow, 2048/_ThreadInput);
-        		 if(starterRow<2048){
-            		 starterRow = 2048/_ThreadInput;
-        		}
-        		 }
+            		 starterRow += 2048/_ThreadInput;
+            		 }
         	 }
         	 if (s==2){
         		 _workers = new JuliaSet[_ThreadInput];
         		 for(int i = 0; i<_ThreadInput; i++){
         		 _workers[i] = new JuliaSet(_inputDistance, _inputTime, starterRow, 2048/_ThreadInput);
-        		if(starterRow<2048){
-            		 starterRow = 2048/_ThreadInput;
-        		}
+            		 starterRow += 2048/_ThreadInput;
         		 }
         	 }
         	 if (s==3){
         		 _workers = new MandelbrotSet[_ThreadInput];
         		 for(int i = 0; i<_ThreadInput; i++){
         		 _workers[i] = new MandelbrotSet(_inputDistance, _inputTime, starterRow, 2048/_ThreadInput);
-        		 if(starterRow<2048){
-            		 starterRow = 2048/_ThreadInput;
+        		 starterRow += 2048/_ThreadInput;
         		}
-        		 }
+        		 
         	 }
         	 if (s==4){
         		 _workers = new MultibrotSet[_ThreadInput];
         		 for(int i = 0; i<_ThreadInput; i++){
         		 _workers[i] = new MultibrotSet(_inputDistance, _inputTime, starterRow, 2048/_ThreadInput);
-        		 if(starterRow<2048){
-            		 starterRow = 2048/_ThreadInput;
-        		} 
+            		 starterRow += 2048/_ThreadInput;
         		 }
         	 }
            
