@@ -53,9 +53,11 @@ public class MandelbrotSet extends SwingWorker<WorkerResult, Void> {
 		_escapeTime = new int[_noOfRows][_noOfCols];
 		for(int y = 0; y < _noOfCols; y+=1){
 			for(int x = 0; x<_noOfRows; x+=1){
-				Point2D.Double point = this.getCoordinates(x, y);
+				Point2D.Double point = this.getCoordinates(_starterRow, y);
 				_escapeTime[x][y] = this.getEscapeTime(point.x, point.y);
+				_starterRow+=1;
 			}
+			_starterRow = starterRow;
 		}	
 	}
 	/**
